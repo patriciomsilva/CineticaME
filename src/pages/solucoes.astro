@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { solutionsData } from '../data/solutions';
+---
+
+<BaseLayout
+  title="Soluções em Materiais Elétricos — Cinética Materiais Elétricos"
+  description="Soluções em materiais elétricos e iluminação para residências, profissionais e empresas em Morro da Fumaça - SC."
+>
+  <!-- Hero da Página de Soluções -->
+  <section class="bg-cinetica-blue-deep text-white py-16 sm:py-20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-2">Linhas e Soluções</span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold font-heading mb-4 text-white">
+          Soluções para o Seu Projeto
+        </h1>
+        <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+          Materiais elétricos e iluminação para residências, profissionais e empresas em Morro da Fumaça — SC.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista Detalhada de Soluções -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      {solutionsData.map((solution, index) => {
+        const isEven = index % 2 === 0;
+        return (
+          <article 
+            id={solution.id}
+            class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-14 items-center bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-10`}
+          >
+            <!-- Imagem Real com Aspect Ratio Seguro -->
+            <div class="w-full lg:w-1/2 overflow-hidden rounded-lg shadow-sm aspect-[4/3] bg-slate-200">
+              <picture>
+                <source srcset={solution.image.replace('.webp', '.avif')} type="image/avif" />
+                <source srcset={solution.image} type="image/webp" />
+                <img
+                  src={solution.image}
+                  alt={solution.imageAlt}
+                  width="1000"
+                  height="750"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </picture>
+            </div>
+
+            <!-- Detalhes da Solução -->
+            <div class="w-full lg:w-1/2 space-y-5">
+              <div class="flex flex-wrap gap-2">
+                {solution.audience.map((aud) => (
+                  <span class="bg-cinetica-blue-deep text-white text-xs font-semibold px-3 py-1 rounded">
+                    {aud}
+                  </span>
+                ))}
+              </div>
+
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading">
+                {solution.title}
+              </h2>
+
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {solution.fullDesc}
+              </p>
+
+              <!-- Diferenciais da Linha -->
+              <div class="space-y-2 bg-white p-4 rounded border border-slate-200">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-cinetica-blue-deep mb-2">
+                  Destaques desta linha:
+                </h3>
+                {solution.highlights.map((h) => (
+                  <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-700">
+                    <span class="text-cinetica-orange font-bold">✓</span>
+                    <span>{h}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Amostra de Itens Fornecidos -->
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                  Linhas de Itens em Demonstração:
+                </h3>
+                <div class="flex flex-wrap gap-1.5">
+                  {solution.itemsSample.map((item) => (
+                    <span class="bg-slate-200/80 text-slate-700 text-xs px-2.5 py-1 rounded font-medium">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Link Oficial Instagram / Contato -->
+              <div class="pt-3">
+                <a
+                  href="/contato"
+                  class="inline-flex items-center gap-2 bg-cinetica-blue-deep hover:bg-cinetica-orange text-white text-xs font-bold uppercase tracking-wider px-6 py-3 rounded transition-colors shadow-sm"
+                >
+                  <span>Consultar Atendimento</span>
+                </a>
+              </div>
+
+            </div>
+          </article>
+        );
+      })}
+
+    </div>
+  </section>
+</BaseLayout>
+

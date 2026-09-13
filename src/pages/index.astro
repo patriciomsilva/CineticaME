@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import AudienceSelector from '../components/AudienceSelector.astro';
+import TeamSection from '../components/TeamSection.astro';
+---
+
+<BaseLayout
+  title="Cinética Materiais Elétricos — Morro da Fumaça - SC"
+  description="Soluções completas em materiais elétricos em Morro da Fumaça — SC. Atendimento para residências, profissionais e empresas."
+>
+  <!-- 1. Abertura Hero com Fotografia Real da Equipe -->
+  <Hero />
+
+  <!-- 2. Seletor de Três Caminhos de Atendimento -->
+  <AudienceSelector />
+
+  <!-- 3. Equipe e Estrutura Física com Fotos Reais -->
+  <TeamSection />
+</BaseLayout>
+

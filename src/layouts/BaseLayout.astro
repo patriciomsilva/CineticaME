@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteInfo } from '../data/siteInfo';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${siteInfo.name} — Morro da Fumaça - SC`,
+  description = siteInfo.description,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Bloqueio de indexação em ambiente de desenvolvimento / validação -->
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- Metatags Primárias -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Open Graph Básico -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={siteInfo.name} />
+  </head>
+  
+  <body class="min-h-screen flex flex-col bg-white text-cinetica-dark antialiased">
+    <!-- Link de Acessibilidade Skip-to-Content -->
+    <a 
+      href="#main-content" 
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-cinetica-orange focus:text-white focus:px-4 focus:py-2 focus:font-bold rounded"
+    >
+      Pular para o conteúdo principal
+    </a>
+
+    <!-- Cabeçalho Oficial -->
+    <Header currentPath={Astro.url.pathname} />
+
+    <!-- Conteúdo Principal -->
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Rodapé -->
+    <Footer />
+  </body>
+</html>

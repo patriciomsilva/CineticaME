@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="A Cinética — Loja e Atendimento em Morro da Fumaça - SC"
+  description="Conheça a Cinética Materiais Elétricos: espaço físico em Morro da Fumaça — SC, equipe e soluções para seu projeto."
+>
+  <!-- Hero Institucional -->
+  <section class="bg-cinetica-blue-deep text-white py-16 sm:py-20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-2">Quem Somos</span>
+        <h1 class="text-4xl sm:text-6xl font-extrabold font-heading mb-4 text-white">
+          A Cinética Materiais Elétricos
+        </h1>
+        <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+          Soluções completas em materiais elétricos em Morro da Fumaça — SC.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Institucional: Proposta e Equipe -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block">Institucional</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading">
+            Atendimento e Soluções em Materiais Elétricos
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            A Cinética Materiais Elétricos atua em Morro da Fumaça — SC com loja física e atendimento para clientes residenciais, profissionais da área e empresas.
+          </p>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Nosso compromisso é oferecer materiais elétricos de qualidade e um atendimento transparente em cada compra.
+          </p>
+        </div>
+
+        <!-- Foto Real da Equipe -->
+        <div class="lg:col-span-6">
+          <div class="rounded-xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3] bg-slate-200 relative">
+            <picture>
+              <source srcset="/assets/images/equipe-institucional.avif" type="image/avif" />
+              <source srcset="/assets/images/equipe-institucional.webp" type="image/webp" />
+              <img
+                src="/assets/images/equipe-institucional.webp"
+                alt="Equipe da Cinética Materiais Elétricos em Morro da Fumaça"
+                width="1400"
+                height="933"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Estrutura Física e Showroom -->
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-8 sm:p-12 mb-12">
+        <div class="max-w-3xl mb-10">
+          <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-1">Estrutura Física</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading">
+            Showroom, Balcão e Loja
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Visite nosso espaço em Morro da Fumaça — SC para conhecer nossa linha de iluminação e materiais elétricos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="rounded-lg overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-100">
+            <picture>
+              <source srcset="/assets/images/showroom-iluminacao.avif" type="image/avif" />
+              <source srcset="/assets/images/showroom-iluminacao.webp" type="image/webp" />
+              <img
+                src="/assets/images/showroom-iluminacao.webp"
+                alt="Showroom de iluminação da loja Cinética"
+                width="800"
+                height="1000"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+          <div class="rounded-lg overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-100">
+            <picture>
+              <source srcset="/assets/images/balcao-detalhe.avif" type="image/avif" />
+              <source srcset="/assets/images/balcao-detalhe.webp" type="image/webp" />
+              <img
+                src="/assets/images/balcao-detalhe.webp"
+                alt="Balcão de atendimento e mostruário da loja"
+                width="800"
+                height="1000"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+          <div class="rounded-lg overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-100">
+            <picture>
+              <source srcset="/assets/images/estoque-estrutura.avif" type="image/avif" />
+              <source srcset="/assets/images/estoque-estrutura.webp" type="image/webp" />
+              <img
+                src="/assets/images/estoque-estrutura.webp"
+                alt="Estrutura de materiais elétricos da loja"
+                width="800"
+                height="1000"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+

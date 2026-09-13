@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteInfo } from '../data/siteInfo';
+---
+
+<BaseLayout
+  title="Privacidade — Cinética Materiais Elétricos"
+  description="Informações sobre privacidade e tratamento ético de dados da Cinética Materiais Elétricos."
+>
+  <section class="bg-cinetica-blue-deep text-white py-14 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-2">Transparência</span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold font-heading text-white mb-2">
+          Privacidade e Transparência
+        </h1>
+        <p class="text-slate-300 text-sm">
+          {siteInfo.name} — {siteInfo.address.city} - {siteInfo.address.state}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-slate-700 text-sm sm:text-base leading-relaxed space-y-8">
+      
+      <div>
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">1. Compromisso com a Privacidade</h2>
+        <p>
+          A <strong>{siteInfo.name}</strong>, estabelecida em {siteInfo.address.city} - {siteInfo.address.state}, valoriza a privacidade e o tratamento ético das informações dos seus clientes e visitantes.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">2. Navegação e Dados</h2>
+        <p>
+          Este website institucional tem caráter informativo e de apresentação da nossa empresa e produtos. Não realizamos coleta indevida de dados pessoais nem comercializamos informações com terceiros.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">3. Atendimento e Contato</h2>
+        <p>
+          Quaisquer contatos realizados diretamente pelos canais oficiais da empresa são utilizados estritamente para o esclarecimento de dúvidas e prestação de atendimento comercial solicitado pelo próprio cliente.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">4. Informações Preliminares</h2>
+        <p>
+          Esta página reúne diretrizes preliminares de navegação e transparência. Os dados formais de registro e responsável pelo tratamento de dados serão integrados após validação jurídica e cadastral.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">5. Contato Institucional</h2>
+        <p>
+          Para esclarecimentos sobre a nossa empresa ou atendimento, você pode nos contatar através do nosso canal oficial no Instagram (<a href={siteInfo.contact.instagramUrl} target="_blank" rel="noopener noreferrer" class="text-cinetica-orange font-bold hover:underline" aria-label="Perfil @cineticame no Instagram (abre em nova aba)">{siteInfo.contact.instagram}</a>) ou em nossa loja em {siteInfo.address.city} — {siteInfo.address.state}.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+

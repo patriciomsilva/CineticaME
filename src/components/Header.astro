@@ -1,0 +1,178 @@
+---
+import { siteInfo } from '../data/siteInfo';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navLinks = [
+  { name: 'Início', href: '/' },
+  { name: 'Soluções', href: '/solucoes' },
+  { name: 'A Cinética', href: '/a-cinetica' },
+  { name: 'Contato', href: '/contato' },
+];
+---
+
+<!-- Cabeçalho Principal Simplificado e Espaçoso -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20 sm:h-22">
+      
+      <!-- Logotipo Oficial da Cinética (Maior, Nítido e com Respiro) -->
+      <a 
+        href="/" 
+        class="flex items-center py-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded" 
+        aria-label="Cinética Materiais Elétricos - Página Inicial"
+      >
+        <picture>
+          <source srcset="/assets/images/cinetica-logo-oficial.webp" type="image/webp" />
+          <img 
+            src="/assets/images/cinetica-logo-oficial.png" 
+            alt="Cinética Materiais Elétricos" 
+            width="240" 
+            height="62" 
+            class="h-11 sm:h-13 w-auto object-contain transition-transform group-hover:scale-[1.01]"
+          />
+        </picture>
+      </a>
+
+      <!-- Menu de Navegação Desktop (Claro e Compacto) -->
+      <nav class="hidden md:flex items-center gap-7 lg:gap-9" aria-label="Navegação Principal">
+        {navLinks.map((link) => {
+          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+          return (
+            <a
+              href={link.href}
+              class={`text-sm tracking-wider font-semibold transition-colors py-1 relative ${
+                isActive
+                  ? 'text-cinetica-blue-deep font-bold after:content-[""] after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-cinetica-orange'
+                  : 'text-slate-700 hover:text-cinetica-blue-deep hover:after:content-[""] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:right-0 hover:after:h-[2px] hover:after:bg-slate-300'
+              }`}
+            >
+              {link.name}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Chamada Única para Instagram no Desktop -->
+      <div class="hidden md:flex items-center">
+        <a
+          href={siteInfo.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 border border-slate-300 hover:border-cinetica-blue-deep bg-slate-50 hover:bg-cinetica-blue-deep text-cinetica-blue-deep hover:text-white rounded text-xs font-bold uppercase tracking-wider transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
+          aria-label="Acompanhar perfil oficial no Instagram @cineticame (abre em nova aba)"
+        >
+          <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+
+      <!-- Botão Hambúrguer Mobile Equilibrado -->
+      <div class="flex md:hidden">
+        <button
+          type="button"
+          id="mobile-menu-button"
+          class="text-cinetica-blue-deep hover:text-cinetica-orange p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-cinetica-orange"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menu de navegação"
+        >
+          <svg id="hamburger-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Menu Gaveta Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-xl">
+    {navLinks.map((link) => {
+      const isActive = currentPath === link.href;
+      return (
+        <a
+          href={link.href}
+          class={`block px-3 py-2.5 text-base font-bold uppercase tracking-wider rounded transition-colors ${
+            isActive
+              ? 'bg-cinetica-blue-light text-cinetica-blue-deep font-extrabold border-l-4 border-cinetica-orange'
+              : 'text-slate-700 hover:bg-slate-100 hover:text-cinetica-blue-deep'
+          }`}
+        >
+          {link.name}
+        </a>
+      );
+    })}
+    <div class="pt-3">
+      <a
+        href={siteInfo.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full bg-cinetica-blue-deep hover:bg-cinetica-blue-navy text-white py-3 rounded text-center font-bold uppercase tracking-wider block text-xs flex items-center justify-center gap-2 transition-colors"
+        aria-label="Acompanhar perfil oficial no Instagram @cineticame (abre em nova aba)"
+      >
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        <span>Acompanhar Instagram</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const close = document.getElementById('close-icon');
+
+  function openMenu() {
+    if (!btn || !menu || !hamburger || !close) return;
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Fechar menu de navegação');
+    menu.classList.remove('hidden');
+    hamburger.classList.add('hidden');
+    close.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeMenu(restoreFocus = true) {
+    if (!btn || !menu || !hamburger || !close) return;
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Abrir menu de navegação');
+    menu.classList.add('hidden');
+    hamburger.classList.remove('hidden');
+    close.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+    if (restoreFocus) {
+      btn.focus();
+    }
+  }
+
+  if (btn && menu && hamburger && close) {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMenu(false);
+      } else {
+        openMenu();
+      }
+    });
+
+    // Fechar ao pressionar Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+        closeMenu(true);
+      }
+    });
+  }
+</script>
