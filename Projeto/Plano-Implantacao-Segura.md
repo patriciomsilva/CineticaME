@@ -69,8 +69,11 @@ Antes de qualquer publicação, o diretório `dist/` gerado deve ser inspecionad
 * Confirmação de ausência de arquivos sensíveis ou não intencionais (ex.: `.env`, `.git`, `.DS_Store`, arquivos de backup `.bak`, arquivos de configuração interna).
 * Verificação da presença das páginas compiladas do escopo:
   * `dist/index.html` (Página inicial)
+  * `dist/solucoes/index.html` (Página de soluções)
+  * `dist/a-cinetica/index.html` (Página institucional A Cinética)
+  * `dist/contato/index.html` (Página de contato)
   * `dist/privacidade/index.html` (Página legal de privacidade)
-  * `dist/404.html` (Página de erro personalizada — a ser incluída quando implementada no escopo)
+  * `dist/404.html` (Página institucional de erro 404 personalizada)
 * Validação de integridade dos hashes de arquivos CSS e JS em `dist/_astro/`.
 
 ### 2.3. Estratégias de Publicação (Deploy Atômico e Hospedagem Estática Tradicional)
@@ -80,15 +83,25 @@ Antes de qualquer publicação, o diretório `dist/` gerado deve ser inspecionad
 ### 2.4. Testes de Fumaça (*Smoke Tests*) Pós-Publicação
 Imediatamente após a virada em produção, executar:
 1. Requisição HTTP/HTTPS para a raiz e verificação de status `200 OK`.
-2. Acesso direto às rotas internas e verificação de renderização completa.
-3. Requisição a uma rota inexistente e verificação de resposta `404` apropriada do servidor web (ou página personalizada quando implementada).
-4. Teste de carregamento de imagens e assets estáticos (sem erros no console).
-5. Teste de canais de contato e links ativos (quando canais como WhatsApp ou formulários forem confirmados e implementados).
+2. Acesso direto a todas as rotas institucionais (`/solucoes`, `/a-cinetica`, `/contato`, `/privacidade`) e verificação de renderização completa com status `200 OK`.
+3. Requisição a uma rota inexistente (ex.: `/rota-inexistente-teste`) e confirmação de resposta com status HTTP `404 Not Found` (nunca status `200 OK`), renderizando o conteúdo de `dist/404.html`.
+4. Acesso direto a `/404.html` validando carregamento correto de estilos e assets.
+5. Teste de carregamento de imagens e assets estáticos (sem erros no console).
+6. Teste de canais de contato e links ativos (quando canais como WhatsApp ou formulários forem confirmados e implementados).
 
 ### 2.5. Registro de Versão e Rastreabilidade
 Cada publicação em produção deve ser acompanhada de:
 * Criação de uma tag Git anotada no repositório (ex.: `git tag -a v1.0.0 -m "Release 1.0.0 - Lancamento Oficial"`). Tags anotadas devem ser configuradas como protegidas contra deleção ou substituição assim que uma plataforma remota compatível estiver configurada.
 * Registro em log interno com: Data/Hora UTC, Hash do commit publicado, Tag Git, Responsável pelo disparo e Link da evidência de homologação.
+
+### 2.6. Diretrizes Mandatórias de Tratamento de Erro 404 na Hospedagem
+O comportamento de tratamento de rotas não mapeadas varia conforme a plataforma de hospedagem ou servidor web adotado (ex.: Cloudflare Pages, Vercel, Netlify, AWS S3/CloudFront, Nginx, Apache). Após a definição e contratação do provedor final, as seguintes regras técnicas devem ser obrigatoriamente aplicadas:
+
+1. **Configuração de Fallback para `404.html`:** O servidor ou CDN deve ser explicitamente configurado para servir o arquivo `/404.html` como página de erro padrão quando uma rota ou arquivo não existir.
+2. **Status HTTP 404 Real (Prevenção de Soft-404):** A resposta enviada ao cliente ou rastreador para URLs inexistentes deve conter obrigatoriamente o cabeçalho `HTTP/1.1 404 Not Found` (ou equivalente HTTP/2 / HTTP/3), jamais status `200 OK`.
+3. **Proibição de Roteamento SPA (*Single Page Application*):** Não utilizar regras de reescrita global (como `/* -> /index.html`), pois geram "soft-404" (status 200 para páginas inexistentes), degradando a indexação e a experiência do usuário.
+4. **Validação de Teste em Produção:** Realizar teste automatizado e via cURL (`curl -I https://[DOMINIO]/rota-inexistente-teste`) após o deploy para confirmar o código `404`.
+5. **Proteção contra Indexação:** Confirmar que a página 404 continue com a meta tag `noindex, nofollow` e que sua URL nunca conste em sitemaps XML oficiais.
 
 ---
 

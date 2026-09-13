@@ -26,7 +26,7 @@ A publicação em produção e a virada de tráfego só estão autorizadas após
 | **G-06** | **Domínio Canônico Definido** | [Plano DNS/E-mail (Seção 5)](file:///c:/PROJETOS/CineticaME/Projeto/Plano-DNS-Email.md#5-canonicalização-e-estratégia-de-domínio) | `[ ] Pendente` | SEO / DevOps | Redirect 301 ativo e tag canonical consistente |
 | **G-07** | **Conteúdo Homologado pelo Cliente** | [Formulário Homologação](file:///c:/PROJETOS/CineticaME/Projeto/Formulario-Homologacao-Cliente.md) | `[ ] Pendente` | Gestão / Cliente | Formulário assinado sem dados fictícios |
 | **G-08** | **Autorização para Liberar Indexação** | [Formulário (Seção 6)](file:///c:/PROJETOS/CineticaME/Projeto/Formulario-Homologacao-Cliente.md#6-termo-de-homologação-e-autorização-de-lançamento) | `[ ] Pendente` | Gestão / Cliente | Autorização expressa por escrito do titular |
-| **G-09** | **Testes de Fumaça Pós-Publicação** | [Plano Implantação (Seção 2)](file:///c:/PROJETOS/CineticaME/Projeto/Plano-Implantacao-Segura.md#24-testes-de-fumaça-smoke-tests-pós-publicação) | `[ ] Pendente` | QA | Status 200 em rotas, resposta 404 apropriada e canais ativos testados |
+| **G-09** | **Testes de Fumaça Pós-Publicação** | [Plano Implantação (Seção 2)](file:///c:/PROJETOS/CineticaME/Projeto/Plano-Implantacao-Segura.md#24-testes-de-fumaça-smoke-tests-pós-publicação) | `[ ] Pendente` | QA | Status 200 nas 5 rotas institucionais, status 404 real em rota inexistente servindo /404.html e canais ativos testados |
 | **G-10** | **Confirmação de Envio/Recebimento de E-mail** | [Plano DNS/E-mail (Seção 2)](file:///c:/PROJETOS/CineticaME/Projeto/Plano-DNS-Email.md#22-protocolo-de-testes-bidirecionais-de-e-mail) | `[ ] Pendente` | QA / Administrador | Teste bidirecional interno/externo com SPF/DKIM pass |
 
 ---
@@ -155,7 +155,7 @@ A publicação em produção e a virada de tráfego só estão autorizadas após
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
 | 10.1 | Todos os links internos e de menu funcionais | `[ ] Pendente` | `QA` | `Varredura de links (crawler)` | `__/__/202_` | Zero links quebrados (404) |
 | 10.2 | Links de WhatsApp e canais de contato funcionais | `[ ] Pendente` | `QA` | `Teste de acionamento` | `__/__/202_` | Testar quando recursos forem confirmados |
-| 10.3 | Página 404 personalizada e funcional | `[ ] Pendente` | `Desenvolvimento / QA` | `Acesso a rota inexistente` | `__/__/202_` | A implementar quando definida no escopo |
+| 10.3 | Página 404 institucional personalizada e funcional | `[x] Concluído (Local)`<br>`[ ] Pendente (Host)` | Desenvolvimento / QA | `dist/404.html` gerado / Rota inexistente testada | 13/09/2026 | Fallback de erro e status 404 real a configurar no host final |
 | 10.4 | Comportamento de navegação mobile (menu drawer/hamburger) | `[ ] Concluído` | `QA` | `Teste interativo touch` | `13/09/2026` | Abertura/fechamento fluido |
 
 ---

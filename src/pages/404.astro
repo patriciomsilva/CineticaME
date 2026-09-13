@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteInfo } from '../data/siteInfo';
+
+const title = `Página não encontrada — ${siteInfo.name}`;
+const description = 'A página solicitada não foi encontrada. Verifique o endereço digitado ou navegue pelas seções institucionais da Cinética Materiais Elétricos.';
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Topo Visual Institucional em Azul Profundo -->
+  <section class="bg-cinetica-blue-deep text-white py-14 sm:py-18 relative overflow-hidden border-b border-cinetica-blue-navy/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <!-- Badge de Status com Alto Contraste -->
+      <div class="inline-flex items-center gap-2 bg-cinetica-blue-navy border border-cinetica-blue-electric/40 px-3.5 py-1.5 rounded text-xs font-semibold tracking-wider text-cinetica-blue-light uppercase mb-6 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-cinetica-orange" aria-hidden="true"></span>
+        <span>Erro 404 &bull; Rota Não Encontrada</span>
+      </div>
+
+      <!-- Elemento Visual de Circuito / 404 Inline -->
+      <div class="flex justify-center mb-6" aria-hidden="true">
+        <div class="relative w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center rounded-2xl bg-cinetica-blue-dark text-cinetica-orange shadow-xl border border-cinetica-blue-electric/30">
+          <svg class="w-14 h-14 sm:w-18 sm:h-18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+          <div class="absolute -bottom-2.5 -right-2.5 bg-cinetica-orange text-cinetica-blue-dark font-heading font-extrabold text-sm sm:text-base px-2.5 py-0.5 rounded shadow">
+            404
+          </div>
+        </div>
+      </div>
+
+      <!-- Título Principal Único (h1) -->
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white mb-4 tracking-tight">
+        Página não <span class="text-cinetica-orange">encontrada</span>
+      </h1>
+
+      <!-- Explicação Sucinta -->
+      <p class="text-slate-200 font-sans text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+        O endereço solicitado pode ter sido alterado, removido ou digitado incorretamente.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Seção de Atalhos Institucionais e Navegação Alternativa -->
+  <section class="py-12 sm:py-16 bg-cinetica-light/40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Subtítulo Hierárquico Semântico (h2) -->
+      <h2 class="text-xl sm:text-2xl font-bold font-heading text-cinetica-blue-deep mb-3 tracking-tight">
+        Para onde você deseja ir?
+      </h2>
+      <p class="text-slate-600 font-sans text-sm sm:text-base max-w-lg mx-auto mb-8">
+        Selecione uma das opções abaixo para continuar navegando pelas informações institucionais da Cinética:
+      </p>
+
+      <!-- Grade de Atalhos com Foco Visível e Contraste WCAG AAA -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left mb-10">
+        
+        <a 
+          href="/" 
+          class="group p-5 bg-white rounded-xl border border-slate-200/90 hover:border-cinetica-orange hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-heading font-bold text-lg text-cinetica-blue-deep group-hover:text-cinetica-orange transition-colors">Início</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-cinetica-orange group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="text-xs text-slate-600 font-sans leading-relaxed">Apresentação geral e principais destaques institucionais.</p>
+        </a>
+
+        <a 
+          href="/solucoes" 
+          class="group p-5 bg-white rounded-xl border border-slate-200/90 hover:border-cinetica-orange hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-heading font-bold text-lg text-cinetica-blue-deep group-hover:text-cinetica-orange transition-colors">Soluções</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-cinetica-orange group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="text-xs text-slate-600 font-sans leading-relaxed">Linhas de materiais elétricos residenciais, comerciais e industriais.</p>
+        </a>
+
+        <a 
+          href="/a-cinetica" 
+          class="group p-5 bg-white rounded-xl border border-slate-200/90 hover:border-cinetica-orange hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-heading font-bold text-lg text-cinetica-blue-deep group-hover:text-cinetica-orange transition-colors">A Cinética</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-cinetica-orange group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="text-xs text-slate-600 font-sans leading-relaxed">Nossa história, equipe técnica e compromisso local em Morro da Fumaça.</p>
+        </a>
+
+        <a 
+          href="/contato" 
+          class="group p-5 bg-white rounded-xl border border-slate-200/90 hover:border-cinetica-orange hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-heading font-bold text-lg text-cinetica-blue-deep group-hover:text-cinetica-orange transition-colors">Contato</span>
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-cinetica-orange group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <p class="text-xs text-slate-600 font-sans leading-relaxed">Informações de localização da loja e canal oficial no Instagram.</p>
+        </a>
+
+      </div>
+
+      <!-- Botão de Ação Direta Principal com Alto Contraste -->
+      <div>
+        <a 
+          href="/" 
+          class="inline-flex items-center gap-2 bg-cinetica-orange hover:bg-cinetica-orange-hover text-cinetica-blue-dark hover:text-black font-extrabold uppercase tracking-wider text-sm px-7 py-3.5 rounded shadow transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-blue-deep"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span>Ir para a Página Inicial</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
