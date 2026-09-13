@@ -1,53 +1,45 @@
-# Cinética Materiais Elétricos — Pendências e Confirmações com o Cliente
+# Cinética Materiais Elétricos — Resumo Executivo de Pendências
 
-Este documento lista todas as informações e definições comerciais que necessitam de confirmação formal do cliente antes do avanço para as próximas fases de desenvolvimento (catálogo, expansão de páginas, formulários integrados e publicação em produção).
+Este documento consolida o status executivo de pendências para o lançamento do site institucional da **Cinética Materiais Elétricos**.
+
+Para o preenchimento detalhado e coleta formal dos dados junto ao cliente, consulte os documentos de suporte criados no diretório `Projeto/`:
+1. [Formulário de Homologação do Cliente](file:///c:/PROJETOS/CineticaME/Projeto/Formulario-Homologacao-Cliente.md) — Documento não técnico para preenchimento cadastral, validação de soluções e assinatura formal de aprovação.
+2. [Checklist Interno de Lançamento](file:///c:/PROJETOS/CineticaME/Projeto/Checklist-Lancamento.md) — Roteiro técnico e operacional em 17 fases para publicação segura e monitoramento pós-lançamento.
 
 ---
 
-## 1. Presença Digital & Domínio
-- [ ] **Domínio Oficial:** Qual é o domínio exato registrado ou a ser registrado pela empresa? (Ex.: `cineticamateriais.com.br`, `cineticaeletrica.com.br`, etc.)
-- [ ] **Sitemap XML Oficial:** Criação e publicação do arquivo `sitemap.xml` contendo URLs canônicas absolutas vinculadas ao domínio definitivo, a ser implementado exclusivamente após a confirmação do domínio oficial (não gerar sitemap provisório com URLs relativas ou domínio fictício).
-- [ ] **E-mails Corporativos:** Quais são as contas de e-mail oficiais para recebimento de solicitações gerais e envio de listas de cotação? (Ex.: `contato@...`, `vendas@...`, `orcamentos@...`)
-- [ ] **Canonical e Open Graph Absolutos:** Configuração de URLs absolutas com o domínio oficial em todas as tags `canonical`, `og:url` e `og:image`.
-- [ ] **Dados Estruturados (Schema.org / JSON-LD):** Configuração de schema do tipo `LocalBusiness` / `Store` após confirmação dos dados societários (Razão Social, CNPJ, telefone, endereço com CEP e coordenadas).
+## 1. Bloqueadores Críticos do Lançamento (Fase 1 — Versão 1.0)
 
-## 2. Canais de Atendimento & Contato
-- [ ] **WhatsApp Comercial Oficial:** Qual é o número exato do WhatsApp do balcão/vendas (com DDD)?
-- [ ] **Mensagem Padrão do WhatsApp:** Qual é o texto de saudação inicial preferido para clientes que chegam via site?
-- [ ] **Telefone Fixo:** Existe telefone fixo institucional para exibição pública no rodapé/contato?
+Os itens abaixo **impedem** a publicação final e a liberação da indexação por motores de busca até que sejam fornecidos e homologados pelo cliente:
 
-## 3. Endereço & Localização Física
-- [ ] **Endereço Completo:**
-  - Logradouro e número:
-  - Bairro:
-  - Cidade / UF: Morro da Fumaça — SC
-  - CEP:
-  - Ponto de referência / proximidade:
-- [ ] **Horário de Atendimento Oficial:**
-  - Segunda a Sexta-feira: (Ex.: 07:30 às 12:00 / 13:30 às 18:00)
-  - Sábados: (Ex.: 08:00 às 12:00 ou Fechado)
-  - Domingos e Feriados: Fechado
+- [ ] **Domínio Oficial e DNS:** Definição do domínio exato contratado e responsável administrativo para apontamento.
+- [ ] **Identificação Cadastral Legal:** Razão Social oficial e número de CNPJ para rodapé institucional e termos de privacidade.
+- [ ] **Canais de Contato Oficiais:** Número de WhatsApp comercial definitivo com DDD e e-mail oficial para recebimento de solicitações.
+- [ ] **Endereço e Horários de Atendimento:** Confirmação do endereço físico completo em Morro da Fumaça - SC e horários de funcionamento do balcão.
+- [ ] **Validação de Serviços e Soluções:** Confirmação explícita das linhas de atendimento fornecidas (Residencial, Comercial, Industrial, Iluminação, Infraestrutura) via formulário.
+- [ ] **Autorização de Uso de Imagem:** Aprovação formal do acervo fotográfico da loja e colaboradores.
+- [ ] **Homologação Formal Assinada:** Assinatura do [Formulário de Homologação do Cliente](file:///c:/PROJETOS/CineticaME/Projeto/Formulario-Homologacao-Cliente.md).
 
-## 4. Logística & Área de Atuação
-- [ ] **Raio e Cidades Atendidas:** Quais municípios do Sul Catarinense recebem atendimento presencial / entregas?
-- [ ] **Política de Entrega / Frete:** Como funcionam as entregas para eletricistas, construtoras e indústrias da região?
+---
 
-## 5. Identidade Institucional & História
-- [ ] **Histórico da Empresa:** Ano de fundação, origem do nome Cinética e trajetória em Morro da Fumaça.
-- [ ] **Diferenciais Reais:** Quais são os principais motivos pelos quais eletricistas e empresas escolhem comprar na Cinética?
+## 2. Itens Técnicos Desbloqueados após o Fornecimento dos Dados
 
-## 6. Marcas, Fabricantes & Parcerias
-- [ ] **Marcas Autorizadas:** Quais fabricantes e marcas parceiras possuem autorização formal para exibição com logotipo no site? (Ex.: fios/cabos, iluminação, automação, interruptores, proteção)
-- [ ] **Representações ou Distribuições Exclusivas:** Existe alguma condição especial de representação oficial que deva ser destacada?
+Assim que os dados cadastrais e o domínio forem homologados, a equipe técnica executará os seguintes passos:
 
-## 7. Portfólio de Obras & Projetos
-> **Status nesta etapa:** A seção "Obras" foi removida da navegação pública e menus nesta etapa de consolidação institucional. Ela poderá retornar futuramente assim que forem fornecidos casos reais, acervo fotográfico próprio e autorizações formais dos clientes atendidos.
-- [ ] **Casos Reais Autorizados:** Quais clientes, indústrias, comércios ou projetos residenciais autorizam expressamente a divulgação de fotos e referências de fornecimento no site?
-- [ ] **Fotos Autorizadas de Obras:** Envio do acervo fotográfico de obras reais atendidas.
+- [ ] Configuração de URLs absolutas em tags `canonical`, `og:url` e `og:image`.
+- [ ] Geração do arquivo `sitemap.xml` definitivo e configuração de produção no `robots.txt`.
+- [ ] Inclusão do Schema.org (`LocalBusiness` / `Store`) em JSON-LD com os dados societários reais.
+- [ ] Teste de ponta a ponta dos botões e links de WhatsApp.
+- [ ] Provisionamento e validação de HTTPS/SSL e cabeçalhos de segurança.
 
-## 8. Dados Cadastrais, Privacidade & LGPD
-- [ ] **Razão Social e CNPJ:** Qual é a Razão Social completa e número de CNPJ para constar na política de privacidade e rodapé institucional?
-- [ ] **Encarregado de Dados (DPO):** Qual e-mail ou responsável responderá formalmente por solicitações relativas à LGPD?
-- [ ] **Estratégia de Captação de Leads:**
-  - Foco 100% no direcionamento para WhatsApp / Telefone direto?
-  - OU formulário no site conectado a serviço de envio (ex.: Resend, Formspree) ou CRM interno?
+---
+
+## 3. Itens Reservados para Fases Futuras (Fase 2 — Pós-Lançamento)
+
+Os itens a seguir estão **expressamente fora do escopo inicial** da Versão 1.0 e **não bloqueiam** o lançamento institucional:
+
+- **Catálogo Individual de Produtos:** Listagem detalhada item a item, preços ou controle de estoque.
+- **Logotipos de Fabricantes e Marcas Parceiras:** Publicação de marcas de terceiros mediante autorização formal de cada fabricante.
+- **Portfólio de Obras e Projetos:** Publicação de galeria de obras mediante envio de acervo fotográfico próprio e consentimento formal por escrito dos clientes atendidos.
+- **Depoimentos e Avaliações de Clientes:** Inclusão de depoimentos após coleta de autorizações expressas.
+- **Formulário Dinâmico no Site:** Integração com serviços de mensageria / CRM caso o cliente decida expandir além do canal direto de WhatsApp.
