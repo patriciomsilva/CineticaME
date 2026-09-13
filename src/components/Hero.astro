@@ -57,13 +57,15 @@ import { siteInfo } from '../data/siteInfo';
           
           <!-- Imagem Real da Equipe Preservando Rostos e Proporção -->
           <picture>
+            <source media="(max-width: 640px)" srcset="/assets/images/equipe-hero-sm.avif" type="image/avif" />
+            <source media="(max-width: 640px)" srcset="/assets/images/equipe-hero-sm.webp" type="image/webp" />
             <source srcset="/assets/images/equipe-hero.avif" type="image/avif" />
             <source srcset="/assets/images/equipe-hero.webp" type="image/webp" />
             <img
               src="/assets/images/equipe-hero.webp"
               alt="Equipe da Cinética Materiais Elétricos em Morro da Fumaça"
-              width="1800"
-              height="1200"
+              width="1200"
+              height="800"
               class="w-full h-auto aspect-[3/2] object-cover object-center transform transition-transform duration-500 group-hover:scale-[1.02]"
               fetchpriority="high"
             />

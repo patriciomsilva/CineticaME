@@ -31,13 +31,15 @@ const complementaryPhotos = teamHighlights.filter(item => item.id !== 'equipe');
           <!-- Moldura com proporção 3/2 estrita preservando todos os integrantes de ponta a ponta -->
           <div class="relative bg-slate-900 aspect-[3/2] overflow-hidden flex items-center justify-center">
             <picture class="w-full h-full">
+              <source media="(max-width: 640px)" srcset={mainPhoto.image.replace('.webp', '-sm.avif')} type="image/avif" />
+              <source media="(max-width: 640px)" srcset={mainPhoto.image.replace('.webp', '-sm.webp')} type="image/webp" />
               <source srcset={mainPhoto.image.replace('.webp', '.avif')} type="image/avif" />
               <source srcset={mainPhoto.image} type="image/webp" />
               <img
                 src={mainPhoto.image}
                 alt={mainPhoto.imageAlt}
-                width="1400"
-                height="933"
+                width="1000"
+                height="667"
                 loading="lazy"
                 decoding="async"
                 class="w-full h-full object-contain sm:object-cover object-center"
@@ -49,7 +51,7 @@ const complementaryPhotos = teamHighlights.filter(item => item.id !== 'equipe');
           <div class="p-6 sm:p-7 bg-white flex flex-col justify-between flex-1 border-t border-slate-100">
             <div>
               <div class="flex items-center gap-2 mb-2">
-                <span class="inline-block text-[11px] font-bold uppercase tracking-widest text-cinetica-orange bg-orange-50 px-2.5 py-0.5 rounded border border-orange-200">
+                <span class="inline-block text-[11px] font-bold uppercase tracking-widest text-orange-800 bg-orange-100 px-2.5 py-0.5 rounded border border-orange-200">
                   Presença Institucional
                 </span>
               </div>
@@ -70,13 +72,15 @@ const complementaryPhotos = teamHighlights.filter(item => item.id !== 'equipe');
           <div class="bg-white rounded-lg overflow-hidden border border-slate-200/90 shadow-sm flex flex-col group hover:border-slate-300 transition-all">
             <div class="aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/9] overflow-hidden bg-slate-100 relative">
               <picture>
+                <source media="(max-width: 640px)" srcset={item.image.replace('.webp', '-sm.avif')} type="image/avif" />
+                <source media="(max-width: 640px)" srcset={item.image.replace('.webp', '-sm.webp')} type="image/webp" />
                 <source srcset={item.image.replace('.webp', '.avif')} type="image/avif" />
                 <source srcset={item.image} type="image/webp" />
                 <img
                   src={item.image}
                   alt={item.imageAlt}
-                  width="800"
-                  height="1000"
+                  width="700"
+                  height="875"
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"

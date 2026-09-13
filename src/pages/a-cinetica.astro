@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="A Cinética — Loja e Atendimento em Morro da Fumaça - SC"
-  description="Conheça a Cinética Materiais Elétricos: espaço físico em Morro da Fumaça — SC, equipe e soluções para seu projeto."
+  description="Conheça a Cinética Materiais Elétricos: espaço físico em Morro da Fumaça — SC, equipe e atendimento no balcão."
 >
   <!-- Hero Institucional -->
   <section class="bg-cinetica-blue-deep text-white py-16 sm:py-20 relative overflow-hidden border-b border-cinetica-blue-navy/50">
@@ -18,7 +18,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           A Cinética <span class="text-cinetica-orange">Materiais Elétricos</span>
         </h1>
         <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-sans">
-          Espaço físico, estoque dedicado e equipe pronta para atender você em Morro da Fumaça — SC.
+          Espaço físico, balcão de materiais e equipe pronta para atender você em Morro da Fumaça — SC.
         </p>
       </div>
     </div>
@@ -31,17 +31,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
         
         <div class="lg:col-span-6 space-y-6">
-          <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block font-heading">
+          <span class="text-orange-800 font-bold uppercase tracking-wider text-xs block font-heading">
             Atendimento Presencial
           </span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight">
             Compromisso com Qualidade e Transparência
           </h2>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
-            A <strong>Cinética Materiais Elétricos</strong> atua em Morro da Fumaça — SC como loja física estruturada para atender clientes residenciais, eletricistas, instaladores e empresas de diferentes portes.
+            A <strong>Cinética Materiais Elétricos</strong> atua em Morro da Fumaça — SC como loja física para atender clientes residenciais, profissionais da área elétrica e empresas de diferentes portes.
           </p>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
-            Com uma equipe dedicada ao atendimento no balcão e conferência de materiais elétricos, buscamos oferecer soluções práticas, produtos certificados e orientação transparente para sua compra.
+            Com uma equipe dedicada ao atendimento no balcão e conferência de materiais elétricos, buscamos oferecer soluções práticas, componentes de qualidade e atendimento transparente para sua compra.
           </p>
           <div class="pt-2">
             <a
@@ -58,13 +58,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="lg:col-span-6">
           <div class="rounded-xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3] bg-slate-900 relative">
             <picture>
+              <source media="(max-width: 640px)" srcset="/assets/images/equipe-institucional-sm.avif" type="image/avif" />
+              <source media="(max-width: 640px)" srcset="/assets/images/equipe-institucional-sm.webp" type="image/webp" />
               <source srcset="/assets/images/equipe-institucional.avif" type="image/avif" />
               <source srcset="/assets/images/equipe-institucional.webp" type="image/webp" />
               <img
                 src="/assets/images/equipe-institucional.webp"
                 alt="Equipe da Cinética Materiais Elétricos reunida na loja em Morro da Fumaça"
-                width="1400"
-                height="933"
+                width="1000"
+                height="667"
                 class="w-full h-full object-cover object-center"
                 loading="lazy"
                 decoding="async"
@@ -78,14 +80,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Estrutura Física, Mostruário e Showroom -->
       <div class="bg-slate-50 border border-slate-200 rounded-xl p-8 sm:p-12">
         <div class="max-w-3xl mb-10">
-          <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-1 font-heading">
+          <span class="text-orange-800 font-bold uppercase tracking-wider text-xs block mb-1 font-heading">
             Espaço e Ambientes
           </span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight">
             Showroom, Balcão e Loja Física
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2 font-sans">
-            Visite nossa estrutura em Morro da Fumaça — SC para conferir de perto as opções de iluminação, acabamentos e materiais para instalações elétricas.
+            Visite nossa estrutura em Morro da Fumaça — SC para conferir de perto as opções de iluminação, acabamentos e materiais elétricos no balcão.
           </p>
         </div>
 
@@ -93,13 +95,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col group">
             <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
               <picture>
+                <source media="(max-width: 640px)" srcset="/assets/images/showroom-iluminacao-sm.avif" type="image/avif" />
+                <source media="(max-width: 640px)" srcset="/assets/images/showroom-iluminacao-sm.webp" type="image/webp" />
                 <source srcset="/assets/images/showroom-iluminacao.avif" type="image/avif" />
                 <source srcset="/assets/images/showroom-iluminacao.webp" type="image/webp" />
                 <img
                   src="/assets/images/showroom-iluminacao.webp"
                   alt="Showroom de iluminação e pendentes da loja Cinética"
-                  width="800"
-                  height="1000"
+                  width="700"
+                  height="875"
                   class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   loading="lazy"
                   decoding="async"
@@ -115,13 +119,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col group">
             <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
               <picture>
+                <source media="(max-width: 640px)" srcset="/assets/images/balcao-detalhe-sm.avif" type="image/avif" />
+                <source media="(max-width: 640px)" srcset="/assets/images/balcao-detalhe-sm.webp" type="image/webp" />
                 <source srcset="/assets/images/balcao-detalhe.avif" type="image/avif" />
                 <source srcset="/assets/images/balcao-detalhe.webp" type="image/webp" />
                 <img
                   src="/assets/images/balcao-detalhe.webp"
                   alt="Balcão de atendimento e mostruário de acabamentos elétricos"
-                  width="800"
-                  height="1000"
+                  width="700"
+                  height="875"
                   class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   loading="lazy"
                   decoding="async"
@@ -137,13 +143,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col group">
             <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
               <picture>
+                <source media="(max-width: 640px)" srcset="/assets/images/estoque-estrutura-sm.avif" type="image/avif" />
+                <source media="(max-width: 640px)" srcset="/assets/images/estoque-estrutura-sm.webp" type="image/webp" />
                 <source srcset="/assets/images/estoque-estrutura.avif" type="image/avif" />
                 <source srcset="/assets/images/estoque-estrutura.webp" type="image/webp" />
                 <img
                   src="/assets/images/estoque-estrutura.webp"
                   alt="Estrutura e componentes elétricos da loja física"
-                  width="800"
-                  height="1000"
+                  width="700"
+                  height="875"
                   class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   loading="lazy"
                   decoding="async"

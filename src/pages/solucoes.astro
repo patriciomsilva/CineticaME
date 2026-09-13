@@ -39,15 +39,18 @@ import { solutionsData } from '../data/solutions';
             <!-- Imagem Real com Aspect Ratio Seguro e Otimizado -->
             <div class="w-full lg:w-1/2 overflow-hidden rounded-lg shadow-sm aspect-[4/3] bg-slate-200 border border-slate-200">
               <picture>
+                <source media="(max-width: 640px)" srcset={solution.image.replace('.webp', '-sm.avif')} type="image/avif" />
+                <source media="(max-width: 640px)" srcset={solution.image.replace('.webp', '-sm.webp')} type="image/webp" />
                 <source srcset={solution.image.replace('.webp', '.avif')} type="image/avif" />
                 <source srcset={solution.image} type="image/webp" />
                 <img
                   src={solution.image}
                   alt={solution.imageAlt}
-                  width="1000"
-                  height="750"
-                  loading="lazy"
+                  width="800"
+                  height="600"
+                  loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
+                  fetchpriority={index === 0 ? "high" : "auto"}
                   class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500"
                 />
               </picture>
@@ -63,7 +66,7 @@ import { solutionsData } from '../data/solutions';
                     </span>
                   ))}
                 </div>
-                <span class="text-3xl font-extrabold font-heading text-slate-300">
+                <span class="text-3xl font-extrabold font-heading text-slate-500" aria-hidden="true">
                   {solution.categoryNumber}
                 </span>
               </div>

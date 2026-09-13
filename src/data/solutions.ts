@@ -26,7 +26,7 @@ export const solutionsData: Solution[] = [
     highlights: [
       'Materiais para todas as etapas da obra residencial',
       'Interruptores, tomadas e linhas de acabamento',
-      'Quadros, disjuntores e condutores certificados'
+      'Quadros, disjuntores e condutores para sua obra'
     ],
     itemsSample: ['Fios e Cabos Flexíveis', 'Interruptores e Tomadas', 'Disjuntores Termomagnéticos e DRs', 'Caixas de Passagem e Caixas 4x2 / 4x4', 'Eletrodutos Corrugados e Conexões']
   },
@@ -37,13 +37,13 @@ export const solutionsData: Solution[] = [
     title: 'Materiais Elétricos Comerciais',
     shortDesc: 'Materiais e infraestrutura elétrica para estabelecimentos comerciais, escritórios e consultórios.',
     fullDesc: 'Soluções em distribuição elétrica, proteção e infraestrutura para lojas, comércios e ambientes corporativos que demandam segurança e organização.',
-    audience: ['Comércios', 'Instaladores', 'Escritórios'],
+    audience: ['Comércios', 'Profissionais', 'Escritórios'],
     image: '/assets/images/loja-fachada.webp',
     imageAlt: 'Estrutura da loja física Cinética Materiais Elétricos em Morro da Fumaça',
     highlights: [
       'Infraestrutura para distribuição e proteção comercial',
       'Canaletas, eletrodutos e organização de cabos',
-      'Atendimento ágil para reposição e novas instalações'
+      'Atendimento no balcão para reposição e compras'
     ],
     itemsSample: ['Quadros de Distribuição Comercial', 'Canaletas Aparentes e Eletrodutos Rígidos', 'Cabos e Barramentos', 'Iluminação Comercial', 'Dispositivos de Proteção contra Surtos (DPS)']
   },
@@ -54,7 +54,7 @@ export const solutionsData: Solution[] = [
     title: 'Materiais Elétricos Industriais',
     shortDesc: 'Componentes elétricos robustos e suprimentos para manutenção e infraestrutura industrial.',
     fullDesc: 'Fornecimento de cabos de potência, comandos, barramentos, chaves e componentes para demandas elétricas industriais em Morro da Fumaça e região.',
-    audience: ['Indústrias', 'Técnicos', 'Manutenção'],
+    audience: ['Indústrias', 'Profissionais', 'Manutenção'],
     image: '/assets/images/estoque-estrutura.webp',
     imageAlt: 'Estrutura física de estoque e materiais da Cinética Materiais Elétricos',
     highlights: [
@@ -70,7 +70,7 @@ export const solutionsData: Solution[] = [
     categoryNumber: '04',
     title: 'Iluminação e Infraestrutura Elétrica',
     shortDesc: 'Iluminação decorativa, técnica e infraestrutura completa para passagem e fixação.',
-    fullDesc: 'Ampla variedade de luminárias LED, painéis, pendentes, spots, refletores e sistemas de infraestrutura para valorizar e proteger as instalações elétricas.',
+    fullDesc: 'Variedade em luminárias LED, painéis, pendentes, spots, refletores e itens de infraestrutura para ambientes residenciais e comerciais.',
     audience: ['Residências', 'Comércios', 'Profissionais'],
     image: '/assets/images/showroom-iluminacao.webp',
     imageAlt: 'Showroom de iluminação da Cinética Materiais Elétricos',

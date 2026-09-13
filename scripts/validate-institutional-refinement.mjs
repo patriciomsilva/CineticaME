@@ -77,32 +77,14 @@ function getAllFiles(dir, fileList = []) {
 }
 
 async function scrollToBottomAndBack(page) {
-  await page.evaluate(async () => {
-    await new Promise((resolve) => {
-      let totalHeight = 0;
-      const distance = 400;
-      const timer = setInterval(() => {
-        const scrollHeight = document.documentElement.scrollHeight;
-        window.scrollBy(0, distance);
-        totalHeight += distance;
-
-        if (totalHeight >= scrollHeight) {
-          clearInterval(timer);
-          window.scrollTo(0, 0);
-          resolve();
-        }
-      }, 40);
-    });
-    const imgs = Array.from(document.querySelectorAll('img'));
-    await Promise.all(imgs.map(img => {
-      if (img.complete) return Promise.resolve();
-      return new Promise(resolve => {
-        img.addEventListener('load', resolve);
-        img.addEventListener('error', resolve);
-      });
-    }));
+  await page.evaluate(() => {
+    window.scrollTo(0, document.body.scrollHeight);
   });
-  await new Promise(r => setTimeout(r, 300));
+  await new Promise(r => setTimeout(r, 400));
+  await page.evaluate(() => {
+    window.scrollTo(0, 0);
+  });
+  await new Promise(r => setTimeout(r, 200));
 }
 
 async function run() {

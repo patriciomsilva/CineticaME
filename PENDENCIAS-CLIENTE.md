@@ -6,7 +6,10 @@ Este documento lista todas as informações e definições comerciais que necess
 
 ## 1. Presença Digital & Domínio
 - [ ] **Domínio Oficial:** Qual é o domínio exato registrado ou a ser registrado pela empresa? (Ex.: `cineticamateriais.com.br`, `cineticaeletrica.com.br`, etc.)
+- [ ] **Sitemap XML Oficial:** Criação e publicação do arquivo `sitemap.xml` contendo URLs canônicas absolutas vinculadas ao domínio definitivo, a ser implementado exclusivamente após a confirmação do domínio oficial (não gerar sitemap provisório com URLs relativas ou domínio fictício).
 - [ ] **E-mails Corporativos:** Quais são as contas de e-mail oficiais para recebimento de solicitações gerais e envio de listas de cotação? (Ex.: `contato@...`, `vendas@...`, `orcamentos@...`)
+- [ ] **Canonical e Open Graph Absolutos:** Configuração de URLs absolutas com o domínio oficial em todas as tags `canonical`, `og:url` e `og:image`.
+- [ ] **Dados Estruturados (Schema.org / JSON-LD):** Configuração de schema do tipo `LocalBusiness` / `Store` após confirmação dos dados societários (Razão Social, CNPJ, telefone, endereço com CEP e coordenadas).
 
 ## 2. Canais de Atendimento & Contato
 - [ ] **WhatsApp Comercial Oficial:** Qual é o número exato do WhatsApp do balcão/vendas (com DDD)?
@@ -38,7 +41,7 @@ Este documento lista todas as informações e definições comerciais que necess
 - [ ] **Representações ou Distribuições Exclusivas:** Existe alguma condição especial de representação oficial que deva ser destacada?
 
 ## 7. Portfólio de Obras & Projetos
-> **Status nesta etapa:** A seção "Obras" foi removida da navegação pública, menus e sitemap nesta etapa de consolidação institucional. Ela poderá retornar futuramente assim que forem fornecidos casos reais, acervo fotográfico próprio e autorizações formais dos clientes atendidos.
+> **Status nesta etapa:** A seção "Obras" foi removida da navegação pública e menus nesta etapa de consolidação institucional. Ela poderá retornar futuramente assim que forem fornecidos casos reais, acervo fotográfico próprio e autorizações formais dos clientes atendidos.
 - [ ] **Casos Reais Autorizados:** Quais clientes, indústrias, comércios ou projetos residenciais autorizam expressamente a divulgação de fotos e referências de fornecimento no site?
 - [ ] **Fotos Autorizadas de Obras:** Envio do acervo fotográfico de obras reais atendidas.
 

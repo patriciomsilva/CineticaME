@@ -1,19 +1,10 @@
-/* Fontes locais otimizadas (apenas subconjuntos Latin e Latin-Ext para suporte integral a pt-BR) */
-@import '@fontsource/barlow-condensed/latin-600.css';
-@import '@fontsource/barlow-condensed/latin-ext-600.css';
+/* Fontes locais otimizadas (subconjunto Latin com suporte integral a pt-BR) */
 @import '@fontsource/barlow-condensed/latin-700.css';
-@import '@fontsource/barlow-condensed/latin-ext-700.css';
 @import '@fontsource/barlow-condensed/latin-800.css';
-@import '@fontsource/barlow-condensed/latin-ext-800.css';
 
 @import '@fontsource/inter/latin-400.css';
-@import '@fontsource/inter/latin-ext-400.css';
-@import '@fontsource/inter/latin-500.css';
-@import '@fontsource/inter/latin-ext-500.css';
 @import '@fontsource/inter/latin-600.css';
-@import '@fontsource/inter/latin-ext-600.css';
 @import '@fontsource/inter/latin-700.css';
-@import '@fontsource/inter/latin-ext-700.css';
 
 @tailwind base;
 @tailwind components;
@@ -39,7 +30,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }

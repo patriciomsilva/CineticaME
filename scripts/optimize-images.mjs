@@ -1,4 +1,4 @@
-import fs from 'fs';
+﻿import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 
@@ -12,17 +12,17 @@ if (!fs.existsSync(outDir)) {
 
 // Imagens reais confirmadas para a versão institucional refinada
 const imageMap = [
-  { src: path.join(corpDir, 'IMG_6917.JPG'), name: 'equipe-hero', width: 1800, height: 1200, position: 'center' },
-  { src: path.join(corpDir, 'IMG_7437.JPG'), name: 'equipe-institucional', width: 1400, height: 933, position: 'center' },
-  { src: path.join(corpDir, 'IMG_7282.JPG'), name: 'atendimento-balcao', width: 800, height: 1000, position: 'north' },
-  { src: path.join(corpDir, 'IMG_7256.JPG'), name: 'showroom-iluminacao', width: 800, height: 1000, position: 'center' },
-  { src: path.join(corpDir, 'IMG_7260.JPG'), name: 'estoque-estrutura', width: 800, height: 1000, position: 'center' },
-  { src: path.join(corpDir, 'IMG_7274.JPG'), name: 'balcao-detalhe', width: 800, height: 1000, position: 'center' },
-  { src: path.join(prodDir, 'DSC09813.JPG'), name: 'loja-fachada', width: 1400, height: 900, position: 'center' }
+  { src: path.join(corpDir, 'IMG_6917.JPG'), name: 'equipe-hero', width: 1200, height: 800, smWidth: 600, smHeight: 400, position: 'center' },
+  { src: path.join(corpDir, 'IMG_7437.JPG'), name: 'equipe-institucional', width: 1000, height: 667, smWidth: 500, smHeight: 333, position: 'center' },
+  { src: path.join(corpDir, 'IMG_7282.JPG'), name: 'atendimento-balcao', width: 700, height: 875, smWidth: 400, smHeight: 500, position: 'north' },
+  { src: path.join(corpDir, 'IMG_7256.JPG'), name: 'showroom-iluminacao', width: 700, height: 875, smWidth: 400, smHeight: 500, position: 'center' },
+  { src: path.join(corpDir, 'IMG_7260.JPG'), name: 'estoque-estrutura', width: 700, height: 875, smWidth: 400, smHeight: 500, position: 'center' },
+  { src: path.join(corpDir, 'IMG_7274.JPG'), name: 'balcao-detalhe', width: 700, height: 875, smWidth: 400, smHeight: 500, position: 'center' },
+  { src: path.join(prodDir, 'DSC09813.JPG'), name: 'loja-fachada', width: 1000, height: 643, smWidth: 500, smHeight: 321, position: 'center' }
 ];
 
 async function processImages() {
-  console.log('⚡ Processando imagens reais confirmadas...');
+  console.log('⚡ Processando imagens reais otimizadas...');
   let count = 0;
   for (const item of imageMap) {
     if (!fs.existsSync(item.src)) {
@@ -31,14 +31,15 @@ async function processImages() {
     }
     try {
       const pipeline = sharp(item.src).resize(item.width, item.height, { fit: 'cover', position: item.position || 'center' });
-      await pipeline.clone().webp({ quality: 84 }).toFile(path.join(outDir, `${item.name}.webp`));
-      await pipeline.clone().avif({ quality: 80 }).toFile(path.join(outDir, `${item.name}.avif`));
-      await sharp(item.src)
-        .resize(Math.round(item.width / 2), Math.round(item.height / 2), { fit: 'cover', position: item.position || 'center' })
-        .webp({ quality: 80 })
-        .toFile(path.join(outDir, `${item.name}-sm.webp`));
+      await pipeline.clone().webp({ quality: 82, effort: 6 }).toFile(path.join(outDir, `${item.name}.webp`));
+      await pipeline.clone().avif({ quality: 75, effort: 6 }).toFile(path.join(outDir, `${item.name}.avif`));
+      
+      const smPipeline = sharp(item.src).resize(item.smWidth, item.smHeight, { fit: 'cover', position: item.position || 'center' });
+      await smPipeline.clone().webp({ quality: 80, effort: 6 }).toFile(path.join(outDir, `${item.name}-sm.webp`));
+      await smPipeline.clone().avif({ quality: 72, effort: 6 }).toFile(path.join(outDir, `${item.name}-sm.avif`));
+      
       count++;
-      console.log(`✅ [${count}/${imageMap.length}] ${item.name} gerado (.webp, .avif, -sm.webp)`);
+      console.log(`✅ [${count}/${imageMap.length}] ${item.name} gerado (.webp, .avif, -sm.webp, -sm.avif)`);
     } catch (err) {
       console.error(`❌ Erro em ${item.name}:`, err.message);
     }
