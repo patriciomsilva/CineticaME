@@ -7,55 +7,62 @@ import { siteInfo } from '../data/siteInfo';
   title="Privacidade — Cinética Materiais Elétricos"
   description="Informações sobre privacidade e tratamento ético de dados da Cinética Materiais Elétricos."
 >
-  <section class="bg-cinetica-blue-deep text-white py-14 relative overflow-hidden">
+  <section class="bg-cinetica-blue-deep text-white py-16 sm:py-20 relative overflow-hidden border-b border-cinetica-blue-navy/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-3xl">
-        <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-2">Transparência</span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold font-heading text-white mb-2">
-          Privacidade e Transparência
+        <div class="inline-flex items-center gap-2 bg-cinetica-blue-navy border border-cinetica-blue-electric/40 px-3.5 py-1.5 rounded text-xs font-semibold tracking-wider text-cinetica-blue-light uppercase mb-4 w-fit">
+          <span class="w-2 h-2 rounded-full bg-cinetica-orange" aria-hidden="true"></span>
+          <span>Transparência e LGPD</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white mb-4 tracking-tight">
+          Privacidade e <span class="text-cinetica-orange">Transparência</span>
         </h1>
-        <p class="text-slate-300 text-sm">
-          {siteInfo.name} — {siteInfo.address.city} - {siteInfo.address.state}
+        <p class="text-slate-200 text-base sm:text-lg font-sans">
+          {siteInfo.name} — {siteInfo.address.city} — {siteInfo.address.state}
         </p>
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-white">
+  <section class="py-16 sm:py-24 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-slate-700 text-sm sm:text-base leading-relaxed space-y-8">
       
-      <div>
-        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">1. Compromisso com a Privacidade</h2>
-        <p>
-          A <strong>{siteInfo.name}</strong>, estabelecida em {siteInfo.address.city} - {siteInfo.address.state}, valoriza a privacidade e o tratamento ético das informações dos seus clientes e visitantes.
+      <!-- Banner de Versão Provisória -->
+      <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-lg shadow-sm">
+        <div class="flex items-start gap-3">
+          <div class="text-amber-600 font-bold text-lg leading-none shrink-0" aria-hidden="true">ℹ</div>
+          <div class="text-xs sm:text-sm text-amber-900 font-sans leading-relaxed">
+            <strong class="font-bold block mb-1">Versão Institucional Preliminar</strong>
+            Esta declaração de privacidade tem caráter preliminar e informativo. Os dados societários formais (Razão Social, CNPJ, endereço completo e contato formal do Encarregado de Proteção de Dados - DPO) estão em processo de validação cadastral e serão incorporados nesta seção após confirmação oficial.
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading">1. Compromisso com a Privacidade</h2>
+        <p class="font-sans">
+          A <strong>{siteInfo.name}</strong>, atuante em {siteInfo.address.city} — {siteInfo.address.state}, valoriza a privacidade, o respeito e o tratamento ético das informações de clientes, parceiros e visitantes do seu portal institucional.
         </p>
       </div>
 
-      <div>
-        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">2. Navegação e Dados</h2>
-        <p>
-          Este website institucional tem caráter informativo e de apresentação da nossa empresa e produtos. Não realizamos coleta indevida de dados pessoais nem comercializamos informações com terceiros.
+      <div class="space-y-3">
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading">2. Navegação Estática e Coleta de Dados</h2>
+        <p class="font-sans">
+          Este website opera de forma totalmente estática e informativa. Não realizamos rastreamento invasivo, não comercializamos dados com terceiros e não exigimos cadastro prévio para visualização das linhas institucionais de materiais elétricos.
         </p>
       </div>
 
-      <div>
-        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">3. Atendimento e Contato</h2>
-        <p>
-          Quaisquer contatos realizados diretamente pelos canais oficiais da empresa são utilizados estritamente para o esclarecimento de dúvidas e prestação de atendimento comercial solicitado pelo próprio cliente.
+      <div class="space-y-3">
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading">3. Atendimento e Comunicação</h2>
+        <p class="font-sans">
+          Quaisquer informações compartilhadas pelo cliente em contatos voluntários realizados diretamente através dos nossos canais oficiais (como no perfil do Instagram ou no balcão da loja) são utilizadas estritamente para o atendimento comercial e esclarecimento de dúvidas solicitadas.
         </p>
       </div>
 
-      <div>
-        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">4. Informações Preliminares</h2>
-        <p>
-          Esta página reúne diretrizes preliminares de navegação e transparência. Os dados formais de registro e responsável pelo tratamento de dados serão integrados após validação jurídica e cadastral.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading mb-3">5. Contato Institucional</h2>
-        <p>
-          Para esclarecimentos sobre a nossa empresa ou atendimento, você pode nos contatar através do nosso canal oficial no Instagram (<a href={siteInfo.contact.instagramUrl} target="_blank" rel="noopener noreferrer" class="text-cinetica-orange font-bold hover:underline" aria-label="Perfil @cineticame no Instagram (abre em nova aba)">{siteInfo.contact.instagram}</a>) ou em nossa loja em {siteInfo.address.city} — {siteInfo.address.state}.
+      <div class="space-y-3">
+        <h2 class="text-2xl font-bold text-cinetica-blue-deep font-heading">4. Contato e Atualizações</h2>
+        <p class="font-sans">
+          Para dúvidas sobre o atendimento ou diretrizes institucionais, você pode nos contatar em nossa loja em {siteInfo.address.city} — {siteInfo.address.state} ou pelo canal oficial no Instagram (<a href={siteInfo.contact.instagramUrl} target="_blank" rel="noopener noreferrer" class="text-cinetica-orange font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded" aria-label="Perfil @cineticame no Instagram (abre em nova aba)">{siteInfo.contact.instagram}</a>).
         </p>
       </div>
 

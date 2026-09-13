@@ -7,12 +7,7 @@ interface Props {
 
 const { currentPath = '/' } = Astro.props;
 
-const navLinks = [
-  { name: 'Início', href: '/' },
-  { name: 'Soluções', href: '/solucoes' },
-  { name: 'A Cinética', href: '/a-cinetica' },
-  { name: 'Contato', href: '/contato' },
-];
+const navLinks = siteInfo.navLinks;
 ---
 
 <!-- Cabeçalho Principal Simplificado e Espaçoso -->

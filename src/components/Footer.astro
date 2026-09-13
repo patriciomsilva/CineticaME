@@ -36,11 +36,13 @@ const currentYear = new Date().getFullYear();
           Navegação
         </h3>
         <ul class="flex flex-wrap md:flex-col gap-x-5 gap-y-2 text-xs sm:text-sm">
-          <li><a href="/" class="text-slate-300 hover:text-white transition-colors">Início</a></li>
-          <li><a href="/solucoes" class="text-slate-300 hover:text-white transition-colors">Soluções</a></li>
-          <li><a href="/a-cinetica" class="text-slate-300 hover:text-white transition-colors">A Cinética</a></li>
-          <li><a href="/contato" class="text-slate-300 hover:text-white transition-colors">Contato</a></li>
-          <li><a href="/privacidade" class="text-slate-300 hover:text-white transition-colors">Privacidade</a></li>
+          {siteInfo.footerLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded">
+                {link.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 

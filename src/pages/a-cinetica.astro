@@ -7,51 +7,65 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Conheça a Cinética Materiais Elétricos: espaço físico em Morro da Fumaça — SC, equipe e soluções para seu projeto."
 >
   <!-- Hero Institucional -->
-  <section class="bg-cinetica-blue-deep text-white py-16 sm:py-20 relative overflow-hidden">
+  <section class="bg-cinetica-blue-deep text-white py-16 sm:py-20 relative overflow-hidden border-b border-cinetica-blue-navy/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-3xl">
-        <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-2">Quem Somos</span>
-        <h1 class="text-4xl sm:text-6xl font-extrabold font-heading mb-4 text-white">
-          A Cinética Materiais Elétricos
+        <div class="inline-flex items-center gap-2 bg-cinetica-blue-navy border border-cinetica-blue-electric/40 px-3.5 py-1.5 rounded text-xs font-semibold tracking-wider text-cinetica-blue-light uppercase mb-4 w-fit">
+          <span class="w-2 h-2 rounded-full bg-cinetica-orange" aria-hidden="true"></span>
+          <span>Presença Física e Equipe</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading mb-4 text-white tracking-tight">
+          A Cinética <span class="text-cinetica-orange">Materiais Elétricos</span>
         </h1>
-        <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
-          Soluções completas em materiais elétricos em Morro da Fumaça — SC.
+        <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-sans">
+          Espaço físico, estoque dedicado e equipe pronta para atender você em Morro da Fumaça — SC.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Seção Institucional: Proposta e Equipe -->
+  <!-- Seção Institucional: Proposta e Equipe Real -->
   <section class="py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
         
         <div class="lg:col-span-6 space-y-6">
-          <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block">Institucional</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading">
-            Atendimento e Soluções em Materiais Elétricos
+          <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block font-heading">
+            Atendimento Presencial
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight">
+            Compromisso com Qualidade e Transparência
           </h2>
-          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-            A Cinética Materiais Elétricos atua em Morro da Fumaça — SC com loja física e atendimento para clientes residenciais, profissionais da área e empresas.
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
+            A <strong>Cinética Materiais Elétricos</strong> atua em Morro da Fumaça — SC como loja física estruturada para atender clientes residenciais, eletricistas, instaladores e empresas de diferentes portes.
           </p>
-          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Nosso compromisso é oferecer materiais elétricos de qualidade e um atendimento transparente em cada compra.
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
+            Com uma equipe dedicada ao atendimento no balcão e conferência de materiais elétricos, buscamos oferecer soluções práticas, produtos certificados e orientação transparente para sua compra.
           </p>
+          <div class="pt-2">
+            <a
+              href="/contato"
+              class="inline-flex items-center gap-2 bg-cinetica-orange hover:bg-cinetica-orange-hover text-cinetica-blue-dark font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
+            >
+              <span>Fale com Nossa Equipe</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
 
-        <!-- Foto Real da Equipe -->
+        <!-- Foto Real da Equipe com Moldura Segura -->
         <div class="lg:col-span-6">
-          <div class="rounded-xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3] bg-slate-200 relative">
+          <div class="rounded-xl overflow-hidden shadow-lg border border-slate-200 aspect-[4/3] bg-slate-900 relative">
             <picture>
               <source srcset="/assets/images/equipe-institucional.avif" type="image/avif" />
               <source srcset="/assets/images/equipe-institucional.webp" type="image/webp" />
               <img
                 src="/assets/images/equipe-institucional.webp"
-                alt="Equipe da Cinética Materiais Elétricos em Morro da Fumaça"
+                alt="Equipe da Cinética Materiais Elétricos reunida na loja em Morro da Fumaça"
                 width="1400"
                 height="933"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover object-center"
                 loading="lazy"
                 decoding="async"
               />
@@ -61,63 +75,85 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       </div>
 
-      <!-- Estrutura Física e Showroom -->
-      <div class="bg-slate-50 border border-slate-200 rounded-xl p-8 sm:p-12 mb-12">
+      <!-- Estrutura Física, Mostruário e Showroom -->
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-8 sm:p-12">
         <div class="max-w-3xl mb-10">
-          <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-1">Estrutura Física</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading">
-            Showroom, Balcão e Loja
+          <span class="text-cinetica-orange font-bold uppercase tracking-wider text-xs block mb-1 font-heading">
+            Espaço e Ambientes
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight">
+            Showroom, Balcão e Loja Física
           </h2>
-          <p class="text-slate-600 text-sm sm:text-base mt-2">
-            Visite nosso espaço em Morro da Fumaça — SC para conhecer nossa linha de iluminação e materiais elétricos.
+          <p class="text-slate-600 text-sm sm:text-base mt-2 font-sans">
+            Visite nossa estrutura em Morro da Fumaça — SC para conferir de perto as opções de iluminação, acabamentos e materiais para instalações elétricas.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="rounded-lg overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-100">
-            <picture>
-              <source srcset="/assets/images/showroom-iluminacao.avif" type="image/avif" />
-              <source srcset="/assets/images/showroom-iluminacao.webp" type="image/webp" />
-              <img
-                src="/assets/images/showroom-iluminacao.webp"
-                alt="Showroom de iluminação da loja Cinética"
-                width="800"
-                height="1000"
-                class="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
+          <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col group">
+            <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
+              <picture>
+                <source srcset="/assets/images/showroom-iluminacao.avif" type="image/avif" />
+                <source srcset="/assets/images/showroom-iluminacao.webp" type="image/webp" />
+                <img
+                  src="/assets/images/showroom-iluminacao.webp"
+                  alt="Showroom de iluminação e pendentes da loja Cinética"
+                  width="800"
+                  height="1000"
+                  class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <div class="p-4 border-t border-slate-100">
+              <h3 class="font-heading font-bold text-base text-cinetica-blue-deep">Showroom de Iluminação</h3>
+              <p class="text-xs text-slate-600 font-sans mt-1">Lustres, pendentes, painéis LED e modelos para visualização.</p>
+            </div>
           </div>
-          <div class="rounded-lg overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-100">
-            <picture>
-              <source srcset="/assets/images/balcao-detalhe.avif" type="image/avif" />
-              <source srcset="/assets/images/balcao-detalhe.webp" type="image/webp" />
-              <img
-                src="/assets/images/balcao-detalhe.webp"
-                alt="Balcão de atendimento e mostruário da loja"
-                width="800"
-                height="1000"
-                class="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
+
+          <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col group">
+            <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
+              <picture>
+                <source srcset="/assets/images/balcao-detalhe.avif" type="image/avif" />
+                <source srcset="/assets/images/balcao-detalhe.webp" type="image/webp" />
+                <img
+                  src="/assets/images/balcao-detalhe.webp"
+                  alt="Balcão de atendimento e mostruário de acabamentos elétricos"
+                  width="800"
+                  height="1000"
+                  class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <div class="p-4 border-t border-slate-100">
+              <h3 class="font-heading font-bold text-base text-cinetica-blue-deep">Balcão de Atendimento</h3>
+              <p class="text-xs text-slate-600 font-sans mt-1">Conferência de listas, mostruário de interruptores e suporte direto.</p>
+            </div>
           </div>
-          <div class="rounded-lg overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-100">
-            <picture>
-              <source srcset="/assets/images/estoque-estrutura.avif" type="image/avif" />
-              <source srcset="/assets/images/estoque-estrutura.webp" type="image/webp" />
-              <img
-                src="/assets/images/estoque-estrutura.webp"
-                alt="Estrutura de materiais elétricos da loja"
-                width="800"
-                height="1000"
-                class="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
+
+          <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col group">
+            <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
+              <picture>
+                <source srcset="/assets/images/estoque-estrutura.avif" type="image/avif" />
+                <source srcset="/assets/images/estoque-estrutura.webp" type="image/webp" />
+                <img
+                  src="/assets/images/estoque-estrutura.webp"
+                  alt="Estrutura e componentes elétricos da loja física"
+                  width="800"
+                  height="1000"
+                  class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <div class="p-4 border-t border-slate-100">
+              <h3 class="font-heading font-bold text-base text-cinetica-blue-deep">Materiais e Infraestrutura</h3>
+              <p class="text-xs text-slate-600 font-sans mt-1">Cabos, quadros, disjuntores e componentes para obras e indústrias.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -125,4 +161,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
 

@@ -40,7 +40,6 @@ async function run() {
     { path: '/solucoes', name: 'solucoes' },
     { path: '/a-cinetica', name: 'a-cinetica' },
     { path: '/contato', name: 'contato' },
-    { path: '/obras', name: 'obras' },
     { path: '/privacidade', name: 'privacidade' }
   ];
 
