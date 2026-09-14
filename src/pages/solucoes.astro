@@ -1,128 +1,139 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { solutionsData } from '../data/solutions';
 ---
 
 <BaseLayout
   title="Soluções em Materiais Elétricos — Cinética Materiais Elétricos"
-  description="Soluções em materiais elétricos e iluminação para residências, profissionais e empresas em Morro da Fumaça - SC."
+  description="Categorias institucionais de atendimento em materiais elétricos e iluminação em Morro da Fumaça — SC."
 >
-  <!-- Hero da Página de Soluções -->
-  <section class="bg-cinetica-blue-deep text-white py-16 sm:py-20 relative overflow-hidden border-b border-cinetica-blue-navy/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 bg-cinetica-blue-navy border border-cinetica-blue-electric/40 px-3.5 py-1.5 rounded text-xs font-semibold tracking-wider text-cinetica-blue-light uppercase mb-4 w-fit">
-          <span class="w-2 h-2 rounded-full bg-cinetica-orange" aria-hidden="true"></span>
-          <span>Categorias Institucionais</span>
+  <!-- Hero Dividido: texto à esquerda + loja-fachada à direita -->
+  <section class="bg-cinetica-blue-deep text-white overflow-hidden border-b border-cinetica-blue-navy/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-stretch min-h-[340px] lg:min-h-[400px]">
+
+        <!-- Texto à esquerda -->
+        <div class="flex-1 py-14 sm:py-16 lg:py-20 lg:pr-12 flex flex-col justify-center">
+          <div class="inline-flex items-center gap-2 bg-cinetica-blue-navy border border-cinetica-blue-electric/40 px-3.5 py-1.5 rounded text-xs font-semibold tracking-wider text-cinetica-blue-light uppercase mb-5 w-fit">
+            <span class="w-2 h-2 rounded-full bg-cinetica-orange" aria-hidden="true"></span>
+            <span>Frentes de Atendimento</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading mb-4 text-white tracking-tight leading-tight">
+            Soluções em <span class="text-cinetica-orange">Materiais Elétricos</span>
+          </h1>
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-sans max-w-xl">
+            Cinco frentes institucionais de atendimento para necessidades residenciais, comerciais e industriais em Morro da Fumaça — SC.
+          </p>
         </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading mb-4 text-white tracking-tight">
-          Soluções em <span class="text-cinetica-orange">Materiais Elétricos</span>
-        </h1>
-        <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-sans">
-          Categorias de atendimento para necessidades residenciais, comerciais e industriais em Morro da Fumaça — SC.
-        </p>
+
+        <!-- Fotografia fachada à direita (desktop) / abaixo do texto (mobile) -->
+        <div class="w-full lg:w-[420px] xl:w-[500px] flex-shrink-0 relative overflow-hidden">
+          <picture>
+            <source media="(max-width: 640px)" srcset="/assets/images/loja-fachada-sm.avif" type="image/avif" />
+            <source media="(max-width: 640px)" srcset="/assets/images/loja-fachada-sm.webp" type="image/webp" />
+            <source srcset="/assets/images/loja-fachada.avif" type="image/avif" />
+            <source srcset="/assets/images/loja-fachada.webp" type="image/webp" />
+            <img
+              src="/assets/images/loja-fachada.webp"
+              alt="Fachada da loja Cinética Materiais Elétricos em Morro da Fumaça — SC"
+              width="500"
+              height="400"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              class="w-full h-56 sm:h-64 lg:h-full object-cover object-center"
+            />
+          </picture>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Lista Detalhada de Soluções -->
-  <section class="py-16 sm:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-      
-      {solutionsData.map((solution, index) => {
-        const isEven = index % 2 === 0;
-        return (
-          <article 
+  <!-- Cinco Frentes Institucionais — cartões sem fotografia -->
+  <section class="py-12 sm:py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {solutionsData.map((solution) => (
+          <article
             id={solution.id}
-            class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-14 items-center bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-10 shadow-sm`}
+            class="bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-7 flex flex-col gap-3"
           >
-            <!-- Imagem Real com Aspect Ratio Seguro e Otimizado -->
-            <div class="w-full lg:w-1/2 overflow-hidden rounded-lg shadow-sm aspect-[4/3] bg-slate-200 border border-slate-200">
-              <picture>
-                <source media="(max-width: 640px)" srcset={solution.image.replace('.webp', '-sm.avif')} type="image/avif" />
-                <source media="(max-width: 640px)" srcset={solution.image.replace('.webp', '-sm.webp')} type="image/webp" />
-                <source srcset={solution.image.replace('.webp', '.avif')} type="image/avif" />
-                <source srcset={solution.image} type="image/webp" />
-                <img
-                  src={solution.image}
-                  alt={solution.imageAlt}
-                  width="800"
-                  height="600"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                  fetchpriority={index === 0 ? "high" : "auto"}
-                  class="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500"
-                />
-              </picture>
+            <!-- Cabeçalho: selo + número -->
+            <div class="flex items-center justify-between gap-3">
+              <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-orange-100 text-orange-800 border border-orange-200">
+                Frente Institucional
+              </span>
+              <span class="text-2xl font-extrabold font-heading text-slate-300 tabular-nums" aria-hidden="true">
+                {solution.categoryNumber}
+              </span>
             </div>
 
-            <!-- Detalhes da Solução -->
-            <div class="w-full lg:w-1/2 space-y-5">
-              <div class="flex items-center justify-between gap-3">
-                <div class="flex flex-wrap gap-2">
-                  {solution.audience.map((aud) => (
-                    <span class="bg-cinetica-blue-deep text-white text-[11px] uppercase tracking-wider font-bold px-3 py-1 rounded">
-                      {aud}
-                    </span>
-                  ))}
-                </div>
-                <span class="text-3xl font-extrabold font-heading text-slate-500" aria-hidden="true">
-                  {solution.categoryNumber}
-                </span>
-              </div>
+            <!-- Título -->
+            <h2 class="text-lg sm:text-xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight leading-snug">
+              {solution.title}
+            </h2>
 
-              <h2 class="text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight">
-                {solution.title}
-              </h2>
-
-              <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
-                {solution.fullDesc}
-              </p>
-
-              <!-- Diferenciais da Linha -->
-              <div class="space-y-2 bg-white p-5 rounded-lg border border-slate-200">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-cinetica-blue-deep mb-2 font-heading">
-                  Destaques desta categoria:
-                </h3>
-                {solution.highlights.map((h) => (
-                  <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-sans">
-                    <span class="text-cinetica-orange font-extrabold shrink-0">✓</span>
-                    <span>{h}</span>
-                  </div>
-                ))}
-              </div>
-
-              <!-- Amostra de Linhas Fornecidas -->
-              <div>
-                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 font-heading">
-                  Exemplos de Itens Atendidos:
-                </h3>
-                <div class="flex flex-wrap gap-1.5">
-                  {solution.itemsSample.map((item) => (
-                    <span class="bg-slate-200/90 text-slate-800 text-xs px-2.5 py-1 rounded font-medium">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <!-- Link Oficial para Atendimento -->
-              <div class="pt-3">
-                <a
-                  href="/contato"
-                  class="inline-flex items-center gap-2 bg-cinetica-blue-deep hover:bg-cinetica-orange text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
-                >
-                  <span>Consultar Atendimento da Categoria</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              </div>
-
-            </div>
+            <!-- Descrição -->
+            <p class="text-slate-600 text-sm leading-relaxed font-sans">
+              {solution.description}
+            </p>
           </article>
-        );
-      })}
+        ))}
+      </div>
 
     </div>
   </section>
-</BaseLayout>
 
+  <!-- CTA Único com fotografia de apoio atendimento-balcao -->
+  <section class="bg-cinetica-blue-deep border-t border-cinetica-blue-navy/60 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row lg:items-stretch">
+
+        <!-- Fotografia de apoio (balcão) -->
+        <div class="w-full lg:w-[380px] xl:w-[440px] flex-shrink-0 relative overflow-hidden order-2 lg:order-1">
+          <picture>
+            <source media="(max-width: 640px)" srcset="/assets/images/atendimento-balcao-sm.avif" type="image/avif" />
+            <source media="(max-width: 640px)" srcset="/assets/images/atendimento-balcao-sm.webp" type="image/webp" />
+            <source srcset="/assets/images/atendimento-balcao.avif" type="image/avif" />
+            <source srcset="/assets/images/atendimento-balcao.webp" type="image/webp" />
+            <img
+              src="/assets/images/atendimento-balcao.webp"
+              alt="Loja Cinética Materiais Elétricos — atendimento presencial"
+              width="440"
+              height="360"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-52 sm:h-64 lg:h-full object-cover object-top"
+            />
+          </picture>
+        </div>
+
+        <!-- Texto e CTA -->
+        <div class="flex-1 py-14 sm:py-16 px-4 sm:px-8 lg:px-12 flex flex-col justify-center order-1 lg:order-2">
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cinetica-blue-light mb-4">
+            <span class="w-1.5 h-1.5 bg-cinetica-orange rounded-full"></span>
+            <span>Atendimento e Informações</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading tracking-tight mb-3">
+            Precisa de Materiais Elétricos em Morro da Fumaça?
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans mb-6 max-w-lg">
+            Visite nossa loja física ou fale com a Cinética para saber mais sobre nosso atendimento presencial no balcão.
+          </p>
+          <div>
+            <a
+              href="/contato"
+              class="inline-flex items-center gap-2 bg-cinetica-orange hover:bg-cinetica-orange-hover text-cinetica-blue-dark hover:text-black font-extrabold text-xs uppercase tracking-wider px-7 py-4 rounded shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
+            >
+              <span>Ver informações de contato</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
