@@ -94,8 +94,145 @@ async function scrollToBottomAndBack(page) {
   await new Promise(r => setTimeout(r, 100));
 }
 
+import { fileURLToPath } from 'url';
+
+export function prepareLighthouseOutputPaths(outBase) {
+  const jsonPath = `${outBase}.report.json`;
+  const htmlPath = `${outBase}.report.html`;
+
+  for (const filePath of [jsonPath, htmlPath]) {
+    if (fs.existsSync(filePath)) {
+      try {
+        fs.unlinkSync(filePath);
+      } catch (err) {
+        throw new Error(`[LIMPEZA] Falha ao excluir arquivo prévio de auditoria em ${filePath}: ${err.message}`);
+      }
+      if (fs.existsSync(filePath)) {
+        throw new Error(`[LIMPEZA] Arquivo de auditoria prévio ainda existe após tentativa de exclusão: ${filePath}`);
+      }
+    }
+    if (fs.existsSync(filePath)) {
+      throw new Error(`[LIMPEZA] Caminho de saída da auditoria não está livre antes de iniciar o subprocesso: ${filePath}`);
+    }
+  }
+
+  return { jsonPath, htmlPath };
+}
+
+export function validateLighthouseReport(jsonPath, auditStartTimeMs = 0) {
+  if (!fs.existsSync(jsonPath)) {
+    throw new Error(`Arquivo de relatório não encontrado em ${jsonPath}`);
+  }
+
+  let stat;
+  try {
+    stat = fs.statSync(jsonPath);
+  } catch (err) {
+    throw new Error(`Falha ao obter status do arquivo ${jsonPath}: ${err.message}`);
+  }
+
+  // O arquivo precisa ter sido modificado durante ou após o início da auditoria
+  if (auditStartTimeMs > 0 && stat.mtimeMs < auditStartTimeMs - 1000) {
+    throw new Error(`Relatório em ${jsonPath} é antigo/anterior ao início da auditoria (mtime=${stat.mtime.toISOString()}, início=${new Date(auditStartTimeMs).toISOString()})`);
+  }
+
+  let content;
+  try {
+    content = fs.readFileSync(jsonPath, 'utf8');
+  } catch (err) {
+    throw new Error(`Falha ao ler o relatório em ${jsonPath}: ${err.message}`);
+  }
+
+  if (!content || content.trim().length === 0) {
+    throw new Error(`Arquivo de relatório vazio em ${jsonPath}`);
+  }
+
+  let report;
+  try {
+    report = JSON.parse(content);
+  } catch (err) {
+    throw new Error(`Relatório corrompido/JSON inválido em ${jsonPath}: ${err.message}`);
+  }
+
+  if (!report || typeof report !== 'object' || Array.isArray(report)) {
+    throw new Error(`Estrutura JSON raiz inválida em ${jsonPath}`);
+  }
+
+  // Campos estruturais obrigatórios
+  if (!report.lighthouseVersion || typeof report.lighthouseVersion !== 'string') {
+    throw new Error(`Campo 'lighthouseVersion' ausente ou inválido no relatório ${jsonPath}`);
+  }
+
+  if (!report.fetchTime || typeof report.fetchTime !== 'string') {
+    throw new Error(`Campo 'fetchTime' ausente ou inválido no relatório ${jsonPath}`);
+  }
+
+  const fetchTimeMs = new Date(report.fetchTime).getTime();
+  if (isNaN(fetchTimeMs)) {
+    throw new Error(`Campo 'fetchTime' contém formato de data inválido (${report.fetchTime}) no relatório ${jsonPath}`);
+  }
+
+  if (auditStartTimeMs > 0 && fetchTimeMs < auditStartTimeMs - 1000) {
+    throw new Error(`fetchTime (${report.fetchTime}) é anterior ao início da auditoria (${new Date(auditStartTimeMs).toISOString()}) no relatório ${jsonPath}`);
+  }
+
+  if (!report.finalUrl || typeof report.finalUrl !== 'string') {
+    throw new Error(`Campo 'finalUrl' ausente ou inválido no relatório ${jsonPath}`);
+  }
+
+  if (!report.audits || typeof report.audits !== 'object' || Array.isArray(report.audits)) {
+    throw new Error(`Objeto 'audits' ausente ou inválido no relatório ${jsonPath}`);
+  }
+
+  if (!report.categories || typeof report.categories !== 'object' || Array.isArray(report.categories)) {
+    throw new Error(`Objeto 'categories' ausente ou inválido no relatório ${jsonPath}`);
+  }
+
+  const requiredCategories = ['performance', 'accessibility', 'best-practices'];
+  for (const cat of requiredCategories) {
+    const categoryObj = report.categories[cat];
+    if (!categoryObj || typeof categoryObj !== 'object') {
+      throw new Error(`Categoria obrigatória '${cat}' ausente no relatório ${jsonPath}`);
+    }
+    if (typeof categoryObj.score !== 'number' || isNaN(categoryObj.score)) {
+      throw new Error(`Score numérico da categoria '${cat}' ausente ou inválido no relatório ${jsonPath}`);
+    }
+  }
+
+  return report;
+}
+
+export function isToleratedEpermNonZeroExit(code, stdout = '', stderr = '') {
+  if (code === 0) return true;
+
+  const isWindows = process.platform === 'win32';
+  if (!isWindows) {
+    return false;
+  }
+
+  const combinedOutput = `${stdout}\n${stderr}`;
+
+  // Verificar evidência explícita de EPERM
+  const hasEperm = /\bEPERM\b/i.test(combinedOutput);
+  if (!hasEperm) {
+    return false;
+  }
+
+  // Verificar se o erro está relacionado ao encerramento ou limpeza dos arquivos temporários do Chrome/Lighthouse
+  const isCleanupOrTeardown = /(?:clean|unlink|rmdir|remove|delete|temp|tmp|userDataDir|scoped_dir|profile|teardown|closing chrome)/i.test(combinedOutput);
+  if (!isCleanupOrTeardown) {
+    return false;
+  }
+
+  return true;
+}
+
 function runSingleLighthouseAuditOnce(url, outBase, isDesktop = false, timeoutMs = 120000) {
   return new Promise((resolve, reject) => {
+    // 1. Limpeza dos relatórios prévios e verificação de integridade dos caminhos
+    const { jsonPath } = prepareLighthouseOutputPaths(outBase);
+    const auditStartTimeMs = Date.now();
+
     const isWindows = process.platform === 'win32';
     const npxCmd = isWindows ? 'npx.cmd' : 'npx';
     const args = [
@@ -116,10 +253,12 @@ function runSingleLighthouseAuditOnce(url, outBase, isDesktop = false, timeoutMs
 
     let timedOut = false;
     let proc;
+    let stdoutBuffer = '';
+    let stderrBuffer = '';
 
     try {
       proc = spawn(spawnCmd, spawnArgs, {
-        stdio: 'inherit',
+        stdio: ['ignore', 'pipe', 'pipe'],
         env: {
           ...process.env,
           CHROME_PATH: chromePath
@@ -128,6 +267,22 @@ function runSingleLighthouseAuditOnce(url, outBase, isDesktop = false, timeoutMs
       });
     } catch (err) {
       return reject(err);
+    }
+
+    if (proc.stdout) {
+      proc.stdout.on('data', chunk => {
+        const text = chunk.toString();
+        stdoutBuffer += text;
+        process.stdout.write(text);
+      });
+    }
+
+    if (proc.stderr) {
+      proc.stderr.on('data', chunk => {
+        const text = chunk.toString();
+        stderrBuffer += text;
+        process.stderr.write(text);
+      });
     }
 
     const timer = setTimeout(() => {
@@ -149,14 +304,28 @@ function runSingleLighthouseAuditOnce(url, outBase, isDesktop = false, timeoutMs
     proc.on('close', code => {
       clearTimeout(timer);
       if (timedOut) return;
-      if (code === 0) {
-        const jsonPath = `${outBase}.report.json`;
-        if (!fs.existsSync(jsonPath) || fs.statSync(jsonPath).size === 0) {
-          return reject(new Error(`Lighthouse finalizou com código 0, mas o relatório JSON não foi gerado em ${jsonPath}`));
+
+      // Se code !== 0, verificar se atende estritamente às condições de tolerância EPERM no Windows
+      if (code !== 0) {
+        const isTolerated = isToleratedEpermNonZeroExit(code, stdoutBuffer, stderrBuffer);
+        if (!isTolerated) {
+          return reject(new Error(`Lighthouse encerrou com código não zero (${code}) não tolerado para ${url}.\nStderr: ${stderrBuffer.slice(-500)}\nStdout: ${stdoutBuffer.slice(-500)}`));
         }
-        resolve();
-      } else {
-        reject(new Error(`Lighthouse finalizou com código de erro ${code} para ${url}`));
+      }
+
+      // Validar a integridade estrutural e temporal do relatório recém-gerado
+      try {
+        const report = validateLighthouseReport(jsonPath, auditStartTimeMs);
+        if (code !== 0) {
+          console.warn(`  ⚠️ Lighthouse terminou com código não zero (${code}) no encerramento/limpeza do Chrome no Windows com evidência de EPERM, mas gerou relatório estruturalmente válido e recém-criado.`);
+        }
+        resolve(report);
+      } catch (validationErr) {
+        if (code === 0) {
+          reject(new Error(`Lighthouse finalizou com código 0, mas o relatório falhou na validação estrutural: ${validationErr.message}`));
+        } else {
+          reject(new Error(`Lighthouse finalizou com código de erro ${code} e sem relatório íntegro para ${url}: ${validationErr.message}`));
+        }
       }
     });
 
@@ -175,8 +344,7 @@ async function runSingleLighthouseAudit(url, outBase, isDesktop = false, timeout
         console.log(`  🔄 Tentativa ${attempt} de ${maxRetries} para [${url}]...`);
         await new Promise(r => setTimeout(r, 1500));
       }
-      await runSingleLighthouseAuditOnce(url, outBase, isDesktop, timeoutMs);
-      return;
+      return await runSingleLighthouseAuditOnce(url, outBase, isDesktop, timeoutMs);
     } catch (err) {
       lastError = err;
       if (attempt === maxRetries) {
@@ -727,8 +895,10 @@ ${lighthouseMdTable}
   }
 }
 
-runAudit().catch(err => {
-  console.error('\n❌ ERRO NO QUALITY GATE:', err);
-  process.exit(1);
-});
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  runAudit().catch(err => {
+    console.error('\n❌ ERRO NO QUALITY GATE:', err);
+    process.exit(1);
+  });
+}
 

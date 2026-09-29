@@ -10,10 +10,9 @@ const { currentPath = '/' } = Astro.props;
 const navLinks = siteInfo.navLinks;
 ---
 
-<!-- Cabeçalho Principal Simplificado e Espaçoso -->
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-200">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20 sm:h-22">
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
+  <div class="container-shell">
+    <div class="flex h-20 items-center justify-between lg:h-24">
       
       <!-- Logotipo Oficial da Cinética (Maior, Nítido e com Respiro) -->
       <a 
@@ -28,19 +27,19 @@ const navLinks = siteInfo.navLinks;
             alt="Cinética Materiais Elétricos" 
             width="240" 
             height="62" 
-            class="h-10 sm:h-11 w-auto object-contain transition-transform group-hover:scale-[1.01]"
+            class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] lg:h-12"
           />
         </picture>
       </a>
 
       <!-- Menu de Navegação Desktop (Claro e Compacto) -->
-      <nav class="hidden md:flex items-center gap-7 lg:gap-9" aria-label="Navegação Principal">
+      <nav class="hidden items-center gap-8 md:flex lg:gap-10" aria-label="Navegação Principal">
         {navLinks.map((link) => {
           const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
           return (
             <a
               href={link.href}
-              class={`text-sm tracking-wider font-semibold transition-colors py-1 relative ${
+              class={`relative py-2 text-sm font-bold tracking-wide transition-colors ${
                 isActive
                   ? 'text-cinetica-blue-deep font-bold after:content-[""] after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-cinetica-orange'
                   : 'text-slate-700 hover:text-cinetica-blue-deep hover:after:content-[""] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:right-0 hover:after:h-[2px] hover:after:bg-slate-300'
@@ -52,19 +51,13 @@ const navLinks = siteInfo.navLinks;
         })}
       </nav>
 
-      <!-- Chamada Única para Instagram no Desktop -->
+      <!-- Chamada principal -->
       <div class="hidden md:flex items-center">
         <a
-          href={siteInfo.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 border border-slate-300 hover:border-cinetica-blue-deep bg-slate-50 hover:bg-cinetica-blue-deep text-cinetica-blue-deep hover:text-white rounded text-xs font-bold uppercase tracking-wider transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
-          aria-label="Acompanhar perfil oficial no Instagram @cineticame (abre em nova aba)"
+          href="/contato"
+          class="inline-flex min-h-11 items-center justify-center bg-cinetica-blue-deep px-5 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-white transition hover:bg-cinetica-orange hover:text-cinetica-blue-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
         >
-          <svg class="w-4 h-4 fill-current flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-          <span>Instagram</span>
+          <span>Fale conosco</span>
         </a>
       </div>
 

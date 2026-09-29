@@ -1,106 +1,56 @@
----
-import { teamHighlights } from '../data/team';
-
-const mainPhoto = teamHighlights.find(item => item.id === 'equipe') || teamHighlights[0];
-const complementaryPhotos = teamHighlights.filter(item => item.id !== 'equipe');
----
-
-<section class="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- Cabeçalho Institucional Editorial -->
-    <div class="max-w-3xl mb-10 sm:mb-12 lg:mb-14">
-      <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cinetica-blue-navy mb-2">
-        <span class="w-1.5 h-1.5 bg-cinetica-orange rounded-full"></span>
-        <span>Estrutura e Presença</span>
+<section class="overflow-hidden bg-white py-20 sm:py-24 lg:py-28">
+  <div class="container-shell">
+    <div class="grid gap-12 lg:grid-cols-12 lg:items-start">
+      <div class="lg:col-span-4 lg:sticky lg:top-28">
+        <p class="eyebrow mb-4">Presença de verdade</p>
+        <h2 class="section-title">Estrutura que aproxima. Equipe que resolve.</h2>
+        <p class="mt-6 text-lg leading-relaxed text-slate-600">
+          Uma loja física feita para ver, comparar e conversar. Nossa equipe recebe cada necessidade de perto, no balcão e no showroom.
+        </p>
+        <a href="/a-cinetica" class="btn-secondary mt-8">Conhecer a Cinética</a>
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight">
-        Equipe e Estrutura Física
-      </h2>
-      <p class="text-slate-600 text-sm sm:text-base mt-2 font-sans">
-        Cinética Materiais Elétricos em Morro da Fumaça — SC.
-      </p>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:col-span-8">
+        <figure class="image-frame group min-h-[520px] sm:col-span-2">
+          <picture>
+            <source srcset="/assets/images/equipe-institucional.avif" type="image/avif" />
+            <source srcset="/assets/images/equipe-institucional.webp" type="image/webp" />
+            <img src="/assets/images/equipe-institucional.webp" alt="Equipe da Cinética Materiais Elétricos reunida na loja" width="1000" height="667" loading="lazy" decoding="async" class="h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.02]" />
+          </picture>
+          <figcaption class="absolute bottom-0 left-0 max-w-sm bg-white p-6 sm:p-8">
+            <span class="eyebrow mb-3">Nossa equipe</span>
+            <strong class="block font-heading text-3xl font-extrabold uppercase leading-none text-cinetica-blue-deep">Atendimento próximo começa com pessoas presentes</strong>
+          </figcaption>
+        </figure>
+
+        <figure class="image-frame group aspect-[4/5]">
+          <picture>
+            <source srcset="/assets/images/showroom-iluminacao.avif" type="image/avif" />
+            <source srcset="/assets/images/showroom-iluminacao.webp" type="image/webp" />
+            <img src="/assets/images/showroom-iluminacao.webp" alt="Integrante da equipe Cinética Materiais Elétricos" width="700" height="875" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />
+          </picture>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-cinetica-blue-dark to-transparent p-6 pt-20 font-heading text-2xl font-bold uppercase text-white">Equipe preparada para receber</figcaption>
+        </figure>
+
+        <figure class="image-frame group aspect-[4/5]">
+          <picture>
+            <source srcset="/assets/images/estoque-estrutura.avif" type="image/avif" />
+            <source srcset="/assets/images/estoque-estrutura.webp" type="image/webp" />
+            <img src="/assets/images/estoque-estrutura.webp" alt="Integrante da equipe Cinética Materiais Elétricos" width="700" height="875" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" />
+          </picture>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-cinetica-blue-dark to-transparent p-6 pt-20 font-heading text-2xl font-bold uppercase text-white">Atendimento próximo e humano</figcaption>
+        </figure>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Composição Fotográfica Editorial -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-      
-      <!-- Foto Principal Destaque: Nossa Equipe (Col-span 7) -->
-      <div class="lg:col-span-7">
-        <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm group hover:border-slate-300 transition-all">
-          <!-- Moldura com proporção 3/2 estrita preservando todos os rostos sem corte -->
-          <div class="relative bg-slate-900 aspect-[3/2] overflow-hidden flex items-center justify-center">
-            <picture class="w-full h-full">
-              <source media="(max-width: 640px)" srcset={mainPhoto.image.replace('.webp', '-sm.avif')} type="image/avif" />
-              <source media="(max-width: 640px)" srcset={mainPhoto.image.replace('.webp', '-sm.webp')} type="image/webp" />
-              <source srcset={mainPhoto.image.replace('.webp', '.avif')} type="image/avif" />
-              <source srcset={mainPhoto.image} type="image/webp" />
-              <img
-                src={mainPhoto.image}
-                alt={mainPhoto.imageAlt}
-                width="1000"
-                height="667"
-                loading="lazy"
-                decoding="async"
-                class="w-full h-full object-cover object-center"
-              />
-            </picture>
-          </div>
-          
-          <!-- Legenda Compacta Abaixo da Fotografia -->
-          <div class="p-4 sm:p-5 bg-white border-t border-slate-100">
-            <div class="flex items-center gap-2 mb-1.5">
-              <span class="inline-block text-[11px] font-bold uppercase tracking-widest text-orange-800 bg-orange-100 px-2 py-0.5 rounded border border-orange-200">
-                Presença Institucional
-              </span>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-bold font-heading text-cinetica-blue-deep tracking-tight">
-              {mainPhoto.title}
-            </h3>
-            <p class="text-slate-600 text-xs sm:text-sm font-sans mt-1 leading-relaxed">
-              {mainPhoto.description}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fotos Complementares: Atendimento e Estrutura física (Col-span 5) -->
-      <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-        {complementaryPhotos.map((item) => (
-          <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm flex flex-col group hover:border-slate-300 transition-all">
-            <div class="aspect-[16/9] sm:aspect-[4/3] lg:aspect-[16/9] overflow-hidden bg-slate-100 relative">
-              <picture>
-                <source media="(max-width: 640px)" srcset={item.image.replace('.webp', '-sm.avif')} type="image/avif" />
-                <source media="(max-width: 640px)" srcset={item.image.replace('.webp', '-sm.webp')} type="image/webp" />
-                <source srcset={item.image.replace('.webp', '.avif')} type="image/avif" />
-                <source srcset={item.image} type="image/webp" />
-                <img
-                  src={item.image}
-                  alt={item.imageAlt}
-                  width="700"
-                  height="875"
-                  loading="lazy"
-                  decoding="async"
-                  class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
-                />
-              </picture>
-            </div>
-            
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white border-t border-slate-100">
-              <div>
-                <h3 class="text-lg sm:text-xl font-bold text-cinetica-blue-deep font-heading tracking-tight group-hover:text-cinetica-orange transition-colors">
-                  {item.title}
-                </h3>
-                <p class="text-slate-600 text-xs sm:text-sm font-sans mt-1 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
+<section class="bg-cinetica-orange py-10 text-cinetica-blue-dark">
+  <div class="container-shell flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+    <div>
+      <p class="text-sm font-bold uppercase tracking-[0.16em]">Seu projeto começa com uma boa conversa</p>
+      <h2 class="mt-1 font-heading text-3xl font-extrabold uppercase leading-none sm:text-4xl">Conte o que você precisa. A equipe ajuda a encontrar o caminho.</h2>
     </div>
-
+    <a href="/contato" class="btn-secondary shrink-0 border-cinetica-blue-dark">Entrar em contato</a>
   </div>
 </section>

@@ -28,11 +28,8 @@ const {
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#031726" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-
-    <!-- Preload de Fontes Locais Críticas para Prevenção de Layout Shift -->
-    <link rel="preload" href="/_astro/barlow-condensed-latin-800-normal.BKzMuPgK.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/_astro/inter-latin-400-normal.C38fXH4l.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Open Graph Básico -->
     <meta property="og:type" content="website" />
@@ -42,7 +39,7 @@ const {
     <meta property="og:site_name" content={siteInfo.name} />
   </head>
   
-  <body class="min-h-screen flex flex-col bg-white text-cinetica-dark antialiased">
+  <body class="flex min-h-screen flex-col bg-white text-cinetica-dark antialiased">
     <!-- Link de Acessibilidade Skip-to-Content -->
     <a 
       href="#main-content" 

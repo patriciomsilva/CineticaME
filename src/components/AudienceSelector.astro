@@ -1,137 +1,61 @@
 ---
+const audiences = [
+  {
+    number: '01',
+    label: 'Residencial',
+    title: 'Sua casa, do projeto ao acabamento',
+    description: 'Materiais elétricos e iluminação para construir, reformar e renovar ambientes com segurança.',
+    href: '/solucoes#residenciais',
+    link: 'Soluções residenciais',
+  },
+  {
+    number: '02',
+    label: 'Profissionais',
+    title: 'Agilidade para quem vive a obra',
+    description: 'Atendimento de balcão para eletricistas e profissionais que precisam decidir e avançar.',
+    href: '/solucoes#atendimento-balcao',
+    link: 'Atendimento profissional',
+  },
+  {
+    number: '03',
+    label: 'Empresas',
+    title: 'Suprimentos para operações exigentes',
+    description: 'Materiais para demandas comerciais e industriais, com orientação próxima da nossa equipe.',
+    href: '/solucoes#comerciais',
+    link: 'Soluções empresariais',
+  },
+];
 ---
 
-<section class="py-16 sm:py-20 lg:py-24 bg-slate-50 border-b border-slate-200">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- Cabeçalho da Seção -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 pb-6 border-b border-slate-200 gap-4">
-      <div>
-        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cinetica-blue-navy mb-2">
-          <span class="w-1.5 h-1.5 bg-cinetica-orange rounded-full"></span>
-          <span>Segmentos de Atendimento</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight">
-          Caminhos por Público
-        </h2>
+<section class="bg-[var(--color-paper)] py-20 sm:py-24 lg:py-28">
+  <div class="container-shell">
+    <div class="grid gap-8 border-b border-slate-300 pb-10 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <p class="eyebrow mb-4">Atendimento sob medida</p>
+        <h2 class="section-title max-w-3xl">Uma loja preparada para diferentes desafios</h2>
       </div>
-      <p class="text-slate-600 text-sm sm:text-base max-w-md">
-        Soluções organizadas para diferentes necessidades em Morro da Fumaça.
+      <p class="text-lg leading-relaxed text-slate-600 lg:col-span-5 lg:pl-8">
+        Da escolha de um acabamento à conferência de uma lista técnica, você encontra orientação e materiais para seguir com confiança.
       </p>
     </div>
 
-    <!-- Composição Editorial dos Três Caminhos -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-      
-      <!-- Caminho 01: Para sua casa -->
-      <div class="relative bg-white border border-slate-200/90 rounded-lg p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-cinetica-orange/60 transition-all group">
-        <!-- Linha Técnica Superior com Destaque -->
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cinetica-orange to-cinetica-orange/40 rounded-t-lg"></div>
-        
-        <div>
-          <!-- Número Editorial e Rótulo -->
-          <div class="flex items-center justify-between mb-6">
-            <span class="text-3xl font-extrabold font-heading text-slate-500 group-hover:text-cinetica-orange transition-colors" aria-hidden="true">
-              01
-            </span>
-            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-orange-100 text-orange-800 border border-orange-200">
-              Residencial
-            </span>
+    <div class="mt-10 grid gap-px overflow-hidden border border-slate-200 bg-slate-200 lg:grid-cols-3">
+      {audiences.map((item, index) => (
+        <article class="group relative flex min-h-[360px] flex-col bg-white p-7 sm:p-9">
+          <div class="flex items-start justify-between">
+            <span class="font-heading text-5xl font-extrabold text-slate-500 transition-colors group-hover:text-cinetica-orange" aria-hidden="true">{item.number}</span>
+            <span class="border border-slate-200 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-cinetica-blue-navy">{item.label}</span>
           </div>
-
-          <h3 class="text-2xl sm:text-3xl font-bold text-cinetica-blue-deep mb-3 font-heading tracking-tight">
-            Para sua casa
-          </h3>
-          
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">
-            Materiais elétricos e iluminação para construção e reforma.
-          </p>
-        </div>
-
-        <div class="pt-5 border-t border-slate-100">
-          <a
-            href="/solucoes#residenciais"
-            class="text-xs font-bold uppercase tracking-wider text-cinetica-blue-deep group-hover:text-cinetica-orange inline-flex items-center gap-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded py-1"
-          >
-            <span>Ver materiais residenciais</span>
-            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Caminho 02: Para profissionais -->
-      <div class="relative bg-white border border-slate-200/90 rounded-lg p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-cinetica-blue-electric/60 transition-all group">
-        <!-- Linha Técnica Superior com Destaque -->
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cinetica-blue-electric to-cinetica-blue-navy rounded-t-lg"></div>
-        
-        <div>
-          <!-- Número Editorial e Rótulo -->
-          <div class="flex items-center justify-between mb-6">
-            <span class="text-3xl font-extrabold font-heading text-slate-500 group-hover:text-cinetica-blue-electric transition-colors" aria-hidden="true">
-              02
-            </span>
-            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-cyan-50 text-cinetica-blue-navy border border-cyan-200">
-              Profissional
-            </span>
+          <div class="mt-auto pt-16">
+            <h3 class="max-w-sm font-heading text-3xl font-extrabold uppercase leading-none text-cinetica-blue-deep sm:text-4xl">{item.title}</h3>
+            <p class="mt-5 text-base leading-relaxed text-slate-600">{item.description}</p>
+            <a href={item.href} class="mt-7 inline-flex border-b-2 border-cinetica-orange pb-1 text-sm font-extrabold uppercase tracking-[0.08em] text-cinetica-blue-deep transition-colors hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange">
+              {item.link}
+            </a>
           </div>
-
-          <h3 class="text-2xl sm:text-3xl font-bold text-cinetica-blue-deep mb-3 font-heading tracking-tight">
-            Para profissionais
-          </h3>
-          
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">
-            Materiais para eletricistas e profissionais da área elétrica.
-          </p>
-        </div>
-
-        <div class="pt-5 border-t border-slate-100">
-          <a
-            href="/solucoes#atendimento-balcao"
-            class="text-xs font-bold uppercase tracking-wider text-cinetica-blue-deep group-hover:text-cinetica-blue-electric inline-flex items-center gap-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-blue-electric rounded py-1"
-          >
-            <span>Ver atendimento e suprimentos</span>
-            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Caminho 03: Para empresas -->
-      <div class="relative bg-white border border-slate-200/90 rounded-lg p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-cinetica-blue-navy transition-all group">
-        <!-- Linha Técnica Superior com Destaque -->
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cinetica-blue-navy to-cinetica-blue-deep rounded-t-lg"></div>
-        
-        <div>
-          <!-- Número Editorial e Rótulo -->
-          <div class="flex items-center justify-between mb-6">
-            <span class="text-3xl font-extrabold font-heading text-slate-500 group-hover:text-cinetica-blue-navy transition-colors" aria-hidden="true">
-              03
-            </span>
-            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-slate-100 text-cinetica-blue-deep border border-slate-200">
-              Corporativo
-            </span>
-          </div>
-
-          <h3 class="text-2xl sm:text-3xl font-bold text-cinetica-blue-deep mb-3 font-heading tracking-tight">
-            Para empresas
-          </h3>
-          
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">
-            Materiais elétricos para necessidades comerciais e industriais.
-          </p>
-        </div>
-
-        <div class="pt-5 border-t border-slate-100">
-          <a
-            href="/solucoes#comerciais"
-            class="text-xs font-bold uppercase tracking-wider text-cinetica-blue-deep group-hover:text-cinetica-orange inline-flex items-center gap-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded py-1"
-          >
-            <span>Ver soluções comerciais e industriais</span>
-            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-
+          {index === 1 && <div class="absolute inset-x-0 top-0 h-1 bg-cinetica-blue-electric" aria-hidden="true"></div>}
+        </article>
+      ))}
     </div>
-
   </div>
 </section>

@@ -15,6 +15,9 @@
   --color-blue-deep: #062B45;
   --color-blue-electric: #139FC7;
   --color-dark: #171B1F;
+  --color-paper: #F5F7F8;
+  --color-line: #D9E1E6;
+  --shadow-soft: 0 24px 70px -34px rgba(3, 23, 38, 0.3);
 }
 
 html {
@@ -27,12 +30,67 @@ html {
 
 body {
   overflow-x: hidden;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: #FF5A00;
+  color: #031726;
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-cinetica-blue-navy;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply block h-[2px] w-7 bg-cinetica-orange;
+  }
+
+  .eyebrow-dark {
+    @apply text-cyan-100;
+  }
+
+  .display-title {
+    @apply font-heading text-[2.75rem] font-extrabold uppercase leading-[0.92] tracking-[-0.025em] sm:text-6xl lg:text-7xl;
+  }
+
+  .section-title {
+    @apply font-heading text-4xl font-extrabold uppercase leading-[0.98] tracking-[-0.02em] text-cinetica-blue-deep sm:text-5xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-sm bg-cinetica-orange px-7 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-cinetica-blue-dark shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-cinetica-orange-hover hover:text-white hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-sm border border-slate-300 bg-white px-7 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-cinetica-blue-deep transition duration-300 hover:-translate-y-0.5 hover:border-cinetica-blue-deep hover:bg-cinetica-blue-deep hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange focus-visible:ring-offset-2;
+  }
+
+  .surface-card {
+    @apply border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-slate-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .image-frame {
+    @apply relative overflow-hidden bg-cinetica-blue-dark;
+  }
+
+  .image-frame::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0 border border-white/10;
+  }
 }
 
 :focus-visible {

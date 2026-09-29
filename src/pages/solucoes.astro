@@ -1,138 +1,83 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { solutionsData } from '../data/solutions';
 ---
 
 <BaseLayout
-  title="Soluções em Materiais Elétricos — Cinética Materiais Elétricos"
-  description="Categorias institucionais de atendimento em materiais elétricos e iluminação em Morro da Fumaça — SC."
+  title="Soluções em Materiais Elétricos — Cinética"
+  description="Materiais elétricos e iluminação para residências, profissionais e empresas em Morro da Fumaça — SC."
 >
-  <!-- Hero Dividido: texto à esquerda + loja-fachada à direita -->
-  <section class="bg-cinetica-blue-deep text-white overflow-hidden border-b border-cinetica-blue-navy/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row lg:items-stretch min-h-[340px] lg:min-h-[400px]">
-
-        <!-- Texto à esquerda -->
-        <div class="flex-1 py-14 sm:py-16 lg:py-20 lg:pr-12 flex flex-col justify-center">
-          <div class="inline-flex items-center gap-2 bg-cinetica-blue-navy border border-cinetica-blue-electric/40 px-3.5 py-1.5 rounded text-xs font-semibold tracking-wider text-cinetica-blue-light uppercase mb-5 w-fit">
-            <span class="w-2 h-2 rounded-full bg-cinetica-orange" aria-hidden="true"></span>
-            <span>Frentes de Atendimento</span>
-          </div>
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading mb-4 text-white tracking-tight leading-tight">
-            Soluções em <span class="text-cinetica-orange">Materiais Elétricos</span>
-          </h1>
-          <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-sans max-w-xl">
-            Cinco frentes institucionais de atendimento para necessidades residenciais, comerciais e industriais em Morro da Fumaça — SC.
-          </p>
-        </div>
-
-        <!-- Fotografia fachada à direita (desktop) / abaixo do texto (mobile) -->
-        <div class="w-full lg:w-[420px] xl:w-[500px] flex-shrink-0 relative overflow-hidden">
-          <picture>
-            <source media="(max-width: 640px)" srcset="/assets/images/loja-fachada-sm.avif" type="image/avif" />
-            <source media="(max-width: 640px)" srcset="/assets/images/loja-fachada-sm.webp" type="image/webp" />
-            <source srcset="/assets/images/loja-fachada.avif" type="image/avif" />
-            <source srcset="/assets/images/loja-fachada.webp" type="image/webp" />
-            <img
-              src="/assets/images/loja-fachada.webp"
-              alt="Fachada da loja Cinética Materiais Elétricos em Morro da Fumaça — SC"
-              width="500"
-              height="400"
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-              class="w-full h-56 sm:h-64 lg:h-full object-cover object-center"
-            />
-          </picture>
-        </div>
-
+  <section class="relative overflow-hidden bg-cinetica-blue-dark text-white">
+    <div class="container-shell grid min-h-[520px] items-stretch lg:grid-cols-12">
+      <div class="flex flex-col justify-center py-16 lg:col-span-7 lg:pr-14">
+        <p class="eyebrow eyebrow-dark mb-6">Soluções Cinética</p>
+        <h1 class="display-title">Do primeiro ponto de luz à operação inteira.</h1>
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+          Uma seleção de materiais para diferentes etapas, ambientes e níveis de exigência — com atendimento próximo para ajudar na escolha.
+        </p>
+      </div>
+      <div class="image-frame min-h-[320px] lg:col-span-5 lg:-mr-10">
+        <picture>
+          <source srcset="/assets/images/loja-fachada.avif" type="image/avif" />
+          <source srcset="/assets/images/loja-fachada.webp" type="image/webp" />
+          <img src="/assets/images/loja-fachada.webp" alt="Fachada da Cinética Materiais Elétricos" width="700" height="875" class="h-full w-full object-cover" fetchpriority="high" />
+        </picture>
+        <div class="absolute inset-0 bg-gradient-to-t from-cinetica-blue-dark/70 via-transparent to-transparent"></div>
+        <p class="absolute bottom-7 left-7 right-7 font-heading text-2xl font-bold uppercase text-white">Loja física em Morro da Fumaça</p>
       </div>
     </div>
   </section>
 
-  <!-- Cinco Frentes Institucionais — cartões sem fotografia -->
-  <section class="py-12 sm:py-16 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="bg-[var(--color-paper)] py-20 sm:py-24 lg:py-28">
+    <div class="container-shell">
+      <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7">
+          <p class="eyebrow mb-4">Portfólio de atendimento</p>
+          <h2 class="section-title">Cinco frentes. Um só compromisso com o seu projeto.</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 lg:col-span-5 lg:pl-8">
+          Encontre o caminho mais próximo da sua necessidade. Nossa equipe complementa a escolha no atendimento presencial.
+        </p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {solutionsData.map((solution) => (
-          <article
-            id={solution.id}
-            class="bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-7 flex flex-col gap-3"
-          >
-            <!-- Cabeçalho: selo + número -->
-            <div class="flex items-center justify-between gap-3">
-              <span class="inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-orange-100 text-orange-800 border border-orange-200">
-                Frente Institucional
-              </span>
-              <span class="text-2xl font-extrabold font-heading text-slate-300 tabular-nums" aria-hidden="true">
-                {solution.categoryNumber}
-              </span>
+      <div class="mt-14 grid gap-5 md:grid-cols-2">
+        {solutionsData.map((solution, index) => (
+          <article id={solution.id} class:list={[
+            'surface-card group relative overflow-hidden p-8 sm:p-10',
+            index === 0 || index === 3 ? 'bg-cinetica-blue-deep text-white md:min-h-[360px]' : 'md:min-h-[300px]',
+            index === 4 && 'md:col-span-2',
+          ]}>
+            <div class="flex items-start justify-between gap-6">
+              <span class:list={['text-xs font-bold uppercase tracking-[0.16em]', index === 0 || index === 3 ? 'text-cyan-100' : 'text-cinetica-blue-navy']}>Solução {solution.categoryNumber}</span>
+              <span class:list={['font-heading text-6xl font-extrabold leading-none', index === 0 || index === 3 ? 'text-white/50' : 'text-slate-500']} aria-hidden="true">{solution.categoryNumber}</span>
             </div>
-
-            <!-- Título -->
-            <h2 class="text-lg sm:text-xl font-extrabold text-cinetica-blue-deep font-heading tracking-tight leading-snug">
-              {solution.title}
-            </h2>
-
-            <!-- Descrição -->
-            <p class="text-slate-600 text-sm leading-relaxed font-sans">
-              {solution.description}
-            </p>
+            <div class="mt-16 max-w-xl">
+              <h3 class:list={['font-heading text-3xl font-extrabold uppercase leading-none sm:text-4xl', index === 0 || index === 3 ? 'text-white' : 'text-cinetica-blue-deep']}>{solution.title}</h3>
+              <p class:list={['mt-5 text-base leading-relaxed', index === 0 || index === 3 ? 'text-slate-300' : 'text-slate-600']}>{solution.description}</p>
+            </div>
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-cinetica-orange transition-all duration-500 group-hover:w-full" aria-hidden="true"></div>
           </article>
         ))}
       </div>
-
     </div>
   </section>
 
-  <!-- CTA Único com fotografia de apoio atendimento-balcao -->
-  <section class="bg-cinetica-blue-deep border-t border-cinetica-blue-navy/60 overflow-hidden">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col lg:flex-row lg:items-stretch">
-
-        <!-- Fotografia de apoio (balcão) -->
-        <div class="w-full lg:w-[380px] xl:w-[440px] flex-shrink-0 relative overflow-hidden order-2 lg:order-1">
-          <picture>
-            <source media="(max-width: 640px)" srcset="/assets/images/atendimento-balcao-sm.avif" type="image/avif" />
-            <source media="(max-width: 640px)" srcset="/assets/images/atendimento-balcao-sm.webp" type="image/webp" />
-            <source srcset="/assets/images/atendimento-balcao.avif" type="image/avif" />
-            <source srcset="/assets/images/atendimento-balcao.webp" type="image/webp" />
-            <img
-              src="/assets/images/atendimento-balcao.webp"
-              alt="Loja Cinética Materiais Elétricos — atendimento presencial"
-              width="440"
-              height="360"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-52 sm:h-64 lg:h-full object-cover object-top"
-            />
-          </picture>
-        </div>
-
-        <!-- Texto e CTA -->
-        <div class="flex-1 py-14 sm:py-16 px-4 sm:px-8 lg:px-12 flex flex-col justify-center order-1 lg:order-2">
-          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cinetica-blue-light mb-4">
-            <span class="w-1.5 h-1.5 bg-cinetica-orange rounded-full"></span>
-            <span>Atendimento e Informações</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-heading tracking-tight mb-3">
-            Precisa de Materiais Elétricos em Morro da Fumaça?
-          </h2>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans mb-6 max-w-lg">
-            Visite nossa loja física ou fale com a Cinética para saber mais sobre nosso atendimento presencial no balcão.
-          </p>
-          <div>
-            <a
-              href="/contato"
-              class="inline-flex items-center gap-2 bg-cinetica-orange hover:bg-cinetica-orange-hover text-cinetica-blue-dark hover:text-black font-extrabold text-xs uppercase tracking-wider px-7 py-4 rounded shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
-            >
-              <span>Ver informações de contato</span>
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-
+  <section class="overflow-hidden bg-white">
+    <div class="container-shell grid lg:grid-cols-12">
+      <div class="image-frame min-h-[360px] lg:col-span-5 lg:-ml-10">
+        <picture>
+          <source srcset="/assets/images/atendimento-balcao.avif" type="image/avif" />
+          <source srcset="/assets/images/atendimento-balcao.webp" type="image/webp" />
+          <img src="/assets/images/atendimento-balcao.webp" alt="Atendimento presencial no balcão da Cinética" width="700" height="875" loading="lazy" decoding="async" class="h-full w-full object-cover object-top" />
+        </picture>
+      </div>
+      <div class="flex flex-col justify-center py-16 lg:col-span-7 lg:py-24 lg:pl-16">
+        <p class="eyebrow mb-4">A escolha certa começa no atendimento</p>
+        <h2 class="section-title max-w-2xl">Traga sua ideia, sua lista ou sua necessidade.</h2>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+          Visite a loja ou converse com a Cinética para entender quais materiais fazem sentido para o seu projeto.
+        </p>
+        <div class="mt-8"><a href="/contato" class="btn-primary">Falar com nossa equipe</a></div>
       </div>
     </div>
   </section>
