@@ -5,39 +5,54 @@ const currentYear = new Date().getFullYear();
 
 <footer class="border-t border-white/10 bg-cinetica-blue-dark text-white">
   <div class="container-shell py-14 sm:py-16">
-    <div class="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-12">
+    <div class="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-12">
       <div class="md:col-span-5">
-        <a href="/" class="inline-block bg-white p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange" aria-label="Cinética Materiais Elétricos — início">
+        <a href="/" class="inline-block rounded-sm bg-white p-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange" aria-label="Cinética Materiais Elétricos — início">
           <picture>
             <source srcset="/assets/images/cinetica-logo-oficial.webp" type="image/webp" />
-            <img src="/assets/images/cinetica-logo-oficial.png" alt="Cinética Materiais Elétricos" width="200" height="52" decoding="async" class="h-11 w-auto" />
+            <img src="/assets/images/cinetica-logo-oficial.png" alt="Cinética Materiais Elétricos" width="200" height="52" decoding="async" class="h-11 w-auto object-contain" />
           </picture>
         </a>
-        <p class="mt-6 max-w-sm text-base leading-relaxed text-slate-400">
+        <p class="mt-6 max-w-sm font-sans text-sm leading-relaxed text-slate-400">
           Materiais elétricos, iluminação e atendimento presencial em {siteInfo.address.city} — {siteInfo.address.state}.
         </p>
       </div>
 
       <nav class="md:col-span-3" aria-label="Navegação do rodapé">
-        <h2 class="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-cinetica-orange">Navegação</h2>
-        <ul class="space-y-2.5 text-base">
+        <h2 class="mb-4 font-sans text-xs font-bold uppercase tracking-[0.18em] text-cinetica-orange">Navegação</h2>
+        <ul class="space-y-2.5 font-sans text-sm">
           {siteInfo.footerLinks.map((link) => (
-            <li><a href={link.href} class="text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange">{link.name}</a></li>
+            <li>
+              <a
+                href={link.href}
+                class="text-slate-300 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded-sm"
+              >
+                {link.name}
+              </a>
+            </li>
           ))}
         </ul>
       </nav>
 
       <div class="md:col-span-4">
-        <h2 class="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-cinetica-orange">Canal oficial</h2>
-        <p class="mb-4 text-base text-slate-400">Acompanhe novidades e fale com nossa equipe pelo Instagram.</p>
-        <a href={siteInfo.contact.instagramUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 border-b border-white/30 pb-2 text-lg font-bold text-white transition hover:border-cinetica-orange hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange" aria-label="Instagram oficial @cineticame">
-          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.675A6.162 6.162 0 1 0 12 18.163 6.162 6.162 0 0 0 12 5.838zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+        <h2 class="mb-4 font-sans text-xs font-bold uppercase tracking-[0.18em] text-cinetica-orange">Canal oficial</h2>
+        <p class="mb-4 font-sans text-sm text-slate-400">Acompanhe novidades e fale com nossa equipe pelo Instagram.</p>
+        <a
+          href={siteInfo.contact.instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 border-b border-white/30 pb-2 font-sans text-base font-bold text-white transition-colors duration-200 hover:border-cinetica-orange hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded-sm"
+          aria-label="Instagram oficial @cineticame"
+        >
+          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.675A6.162 6.162 0 1 0 12 18.163 6.162 6.162 0 0 0 12 5.838zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/>
+          </svg>
           {siteInfo.contact.instagram}
         </a>
       </div>
     </div>
 
-    <div class="flex flex-col gap-3 pt-7 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex flex-col gap-3 pt-7 font-sans text-xs sm:text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
       <p>© {currentYear} Cinética Materiais Elétricos. Todos os direitos reservados.</p>
       <p>{siteInfo.locationDisplay}</p>
     </div>

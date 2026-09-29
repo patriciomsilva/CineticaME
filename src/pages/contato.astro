@@ -12,51 +12,63 @@ import { siteInfo } from '../data/siteInfo';
       <picture>
         <source srcset="/assets/images/loja-fachada.avif" type="image/avif" />
         <source srcset="/assets/images/loja-fachada.webp" type="image/webp" />
-        <img src="/assets/images/loja-fachada.webp" alt="Fachada da loja física da Cinética Materiais Elétricos em Morro da Fumaça" width="700" height="875" class="h-full w-full object-cover opacity-45" />
+        <img
+          src="/assets/images/loja-fachada.webp"
+          alt="Fachada da loja física da Cinética Materiais Elétricos em Morro da Fumaça"
+          width="1000"
+          height="643"
+          class="h-full w-full object-cover opacity-40"
+        />
       </picture>
       <div class="absolute inset-0 bg-gradient-to-r from-cinetica-blue-dark via-cinetica-blue-dark/70 to-transparent"></div>
     </div>
-    <div class="container-shell relative py-20 lg:py-28">
+    <div class="container-shell relative py-14 sm:py-18 lg:py-22">
       <div class="max-w-3xl">
         <p class="eyebrow eyebrow-dark mb-6">Vamos conversar</p>
         <h1 class="display-title">Seu próximo projeto pode começar aqui.</h1>
-        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+        <p class="mt-6 max-w-2xl font-sans text-base leading-relaxed text-slate-300 sm:text-lg lg:text-xl">
           Fale com a equipe, acompanhe as novidades ou visite a Cinética em Morro da Fumaça.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="bg-[var(--color-paper)] py-20 sm:py-24 lg:py-28">
+  <section class="bg-[var(--color-paper)] py-16 sm:py-20 lg:py-24">
     <div class="container-shell grid gap-8 lg:grid-cols-12">
-      <article class="surface-card p-8 sm:p-10 lg:col-span-7">
-        <p class="eyebrow mb-5">Canal oficial</p>
-        <h2 class="section-title max-w-xl">Fale com a Cinética pelo Instagram</h2>
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-          Use nosso perfil oficial para enviar sua mensagem, acompanhar novidades e iniciar o contato com a equipe.
-        </p>
-        <a href={siteInfo.contact.instagramUrl} target="_blank" rel="noopener noreferrer" class="btn-primary mt-9">
-          Acessar {siteInfo.contact.instagram}
-        </a>
+      <article class="surface-card p-7 sm:p-9 lg:col-span-7 flex flex-col justify-between">
+        <div>
+          <p class="eyebrow mb-5">Canal oficial</p>
+          <h2 class="section-title max-w-xl">Fale com a Cinética pelo Instagram</h2>
+          <p class="mt-4 font-sans text-base leading-relaxed text-slate-600">
+            Use nosso perfil oficial para enviar sua mensagem, acompanhar novidades e iniciar o contato com a equipe.
+          </p>
+        </div>
+        <div class="mt-8 pt-4">
+          <a href={siteInfo.contact.instagramUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Acessar {siteInfo.contact.instagram}
+          </a>
+        </div>
       </article>
 
-      <aside class="bg-cinetica-blue-deep p-8 text-white sm:p-10 lg:col-span-5">
-        <p class="eyebrow eyebrow-dark mb-5">Atendimento presencial</p>
-        <h2 class="font-heading text-4xl font-extrabold uppercase leading-none">Visite nossa loja</h2>
-        <p class="mt-6 text-lg leading-relaxed text-slate-300">
-          Conheça nossa estrutura e converse de perto com a equipe sobre materiais elétricos e iluminação.
-        </p>
-        <div class="mt-10 border-t border-white/15 pt-7">
-          <span class="block text-xs font-bold uppercase tracking-[0.16em] text-cinetica-orange">Localização</span>
-          <strong class="mt-2 block text-xl text-white">{siteInfo.address.city} — {siteInfo.address.state}</strong>
+      <aside class="rounded-sm bg-cinetica-blue-deep p-7 text-white sm:p-9 lg:col-span-5 flex flex-col justify-between shadow-sm">
+        <div>
+          <p class="eyebrow eyebrow-dark mb-5">Atendimento presencial</p>
+          <h2 class="font-heading text-3xl sm:text-4xl font-extrabold uppercase leading-none">Visite nossa loja</h2>
+          <p class="mt-4 font-sans text-base leading-relaxed text-slate-300">
+            Conheça nossa estrutura e converse de perto com a equipe sobre materiais elétricos e iluminação.
+          </p>
+        </div>
+        <div class="mt-8 border-t border-white/15 pt-6">
+          <span class="block font-sans text-xs font-bold uppercase tracking-[0.16em] text-cinetica-orange">Localização</span>
+          <strong class="mt-1 block font-sans text-lg sm:text-xl font-bold text-white">{siteInfo.address.city} — {siteInfo.address.state}</strong>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="bg-white py-16 sm:py-20">
+  <section class="bg-white py-14 sm:py-18">
     <div class="container-shell flex flex-col justify-between gap-8 md:flex-row md:items-center">
-      <div class="max-w-3xl">
+      <div class="max-w-2xl">
         <p class="eyebrow mb-4">Antes de escolher, converse</p>
         <h2 class="section-title">Uma boa orientação economiza tempo no projeto.</h2>
       </div>

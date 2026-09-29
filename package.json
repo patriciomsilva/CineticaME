@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "validate-prelaunch": "node scripts/validate-prelaunch-quality-gate.mjs"
+    "validate-prelaunch": "node scripts/validate-prelaunch-quality-gate.mjs",
+    "validate:visual-polish": "node scripts/capture-final-polish.mjs"
   },
   "dependencies": {
     "@fontsource/barlow-condensed": "^5.3.0",

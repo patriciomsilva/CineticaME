@@ -7,23 +7,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Conheça a equipe, o showroom e a estrutura da Cinética Materiais Elétricos em Morro da Fumaça — SC."
 >
   <section class="bg-cinetica-blue-dark text-white">
-    <div class="container-shell grid items-center gap-10 py-16 lg:grid-cols-12 lg:py-24">
+    <div class="container-shell grid items-center gap-10 py-14 sm:py-18 lg:grid-cols-12 lg:gap-12 lg:py-22">
       <div class="lg:col-span-7">
         <p class="eyebrow eyebrow-dark mb-6">A Cinética</p>
         <h1 class="display-title">Uma loja feita para estar perto de quem constrói.</h1>
       </div>
-      <p class="text-lg leading-relaxed text-slate-300 sm:text-xl lg:col-span-5 lg:pl-8">
+      <p class="font-sans text-base sm:text-lg lg:text-xl leading-relaxed text-slate-300 lg:col-span-5 lg:pl-6">
         Em Morro da Fumaça, reunimos materiais elétricos, iluminação, espaço físico e uma equipe disponível para transformar dúvidas em decisões mais seguras.
       </p>
     </div>
   </section>
 
-  <section class="bg-white py-20 sm:py-24 lg:py-28">
-    <div class="container-shell grid gap-12 lg:grid-cols-12 lg:items-center">
+  <section class="bg-white py-16 sm:py-20 lg:py-24">
+    <div class="container-shell grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
       <div class="lg:col-span-5">
         <p class="eyebrow mb-4">Presença local</p>
         <h2 class="section-title">Atendimento começa por escutar</h2>
-        <div class="mt-7 space-y-5 text-lg leading-relaxed text-slate-600">
+        <div class="mt-6 space-y-4 font-sans text-base sm:text-lg leading-relaxed text-slate-600">
           <p>
             A Cinética atende clientes residenciais, profissionais da área elétrica e empresas com uma proposta simples: entender a necessidade antes de indicar o caminho.
           </p>
@@ -31,58 +31,98 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             No balcão, no showroom ou durante a conferência de materiais, nossa estrutura aproxima pessoas, produtos e decisões.
           </p>
         </div>
-        <a href="/contato" class="btn-primary mt-8">Conversar com a equipe</a>
+        <div class="mt-8">
+          <a href="/contato" class="btn-primary">Conversar com a equipe</a>
+        </div>
       </div>
 
-      <figure class="image-frame min-h-[520px] lg:col-span-7">
-        <picture>
-          <source srcset="/assets/images/equipe-institucional.avif" type="image/avif" />
-          <source srcset="/assets/images/equipe-institucional.webp" type="image/webp" />
-          <img src="/assets/images/equipe-institucional.webp" alt="Equipe da Cinética Materiais Elétricos" width="1000" height="667" class="h-full w-full object-cover" fetchpriority="high" />
-        </picture>
-        <figcaption class="absolute bottom-0 right-0 max-w-xs bg-cinetica-orange p-6 text-cinetica-blue-dark">
-          <strong class="font-heading text-3xl font-extrabold uppercase leading-none">Pessoas presentes. Atendimento próximo.</strong>
-        </figcaption>
-      </figure>
+      <div class="lg:col-span-7">
+        <figure class="image-frame aspect-[16/11] shadow-2xl sm:aspect-[16/10]">
+          <picture>
+            <source srcset="/assets/images/equipe-institucional.avif" type="image/avif" />
+            <source srcset="/assets/images/equipe-institucional.webp" type="image/webp" />
+            <img
+              src="/assets/images/equipe-institucional.webp"
+              alt="Equipe da Cinética Materiais Elétricos"
+              width="1000"
+              height="667"
+              class="h-full w-full object-cover object-center"
+              fetchpriority="high"
+            />
+          </picture>
+          <figcaption class="absolute bottom-0 right-0 max-w-xs bg-cinetica-orange px-5 py-3.5 text-cinetica-blue-dark shadow-xl rounded-sm">
+            <strong class="block font-heading text-xl sm:text-2xl font-extrabold uppercase leading-none">Presença local</strong>
+            <span class="block font-sans text-xs font-bold uppercase tracking-wider text-cinetica-blue-dark/90 mt-0.5">Atendimento presencial</span>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
-  <section class="bg-[var(--color-paper)] py-20 sm:py-24 lg:py-28">
+  <section class="bg-[var(--color-paper)] py-16 sm:py-20 lg:py-24">
     <div class="container-shell">
-      <div class="mb-12 max-w-3xl">
+      <div class="mb-10 max-w-3xl">
         <p class="eyebrow mb-4">Conheça o espaço</p>
         <h2 class="section-title">Pessoas e estrutura em um só lugar</h2>
       </div>
 
       <div class="grid gap-5 lg:grid-cols-12">
-        <figure class="image-frame min-h-[520px] lg:col-span-7">
+        <figure class="image-frame aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] lg:col-span-7">
           <picture>
             <source srcset="/assets/images/showroom-iluminacao.avif" type="image/avif" />
             <source srcset="/assets/images/showroom-iluminacao.webp" type="image/webp" />
-            <img src="/assets/images/showroom-iluminacao.webp" alt="Integrante da equipe Cinética Materiais Elétricos" width="700" height="875" loading="lazy" decoding="async" class="h-full w-full object-cover" />
+            <img
+              src="/assets/images/showroom-iluminacao.webp"
+              alt="Integrante da equipe Cinética Materiais Elétricos"
+              width="700"
+              height="875"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover object-center"
+            />
           </picture>
-          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-cinetica-blue-dark to-transparent p-8 pt-24">
-            <strong class="font-heading text-3xl font-extrabold uppercase text-white">Equipe Cinética</strong>
-            <p class="mt-2 max-w-lg text-base text-slate-200">Pessoas presentes para receber, orientar e acompanhar cada necessidade.</p>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-cinetica-blue-dark/90 via-cinetica-blue-dark/40 to-transparent p-6 pt-16">
+            <strong class="font-heading text-2xl sm:text-3xl font-extrabold uppercase text-white">Equipe Cinética</strong>
+            <p class="mt-1 font-sans text-xs sm:text-sm text-slate-200">Pessoas presentes para receber, orientar e acompanhar cada necessidade.</p>
           </figcaption>
         </figure>
 
         <div class="grid gap-5 lg:col-span-5">
-          <figure class="image-frame min-h-[280px]">
+          <figure class="image-frame aspect-[16/10] sm:aspect-[16/10]">
             <picture>
               <source srcset="/assets/images/atendimento-balcao.avif" type="image/avif" />
               <source srcset="/assets/images/atendimento-balcao.webp" type="image/webp" />
-              <img src="/assets/images/atendimento-balcao.webp" alt="Balcão de atendimento da Cinética" width="700" height="875" loading="lazy" decoding="async" class="h-full w-full object-cover object-top" />
+              <img
+                src="/assets/images/atendimento-balcao.webp"
+                alt="Balcão de atendimento da Cinética"
+                width="700"
+                height="875"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-top"
+              />
             </picture>
-            <figcaption class="absolute bottom-0 left-0 bg-white p-5 font-heading text-2xl font-bold uppercase text-cinetica-blue-deep">Atendimento no balcão</figcaption>
+            <figcaption class="absolute bottom-0 left-0 bg-white/95 backdrop-blur-sm px-4 py-2.5 font-heading text-lg sm:text-xl font-bold uppercase text-cinetica-blue-deep border-l-4 border-cinetica-orange">
+              Atendimento no balcão
+            </figcaption>
           </figure>
-          <figure class="image-frame min-h-[280px]">
+          <figure class="image-frame aspect-[16/10] sm:aspect-[16/10]">
             <picture>
               <source srcset="/assets/images/loja-fachada.avif" type="image/avif" />
               <source srcset="/assets/images/loja-fachada.webp" type="image/webp" />
-              <img src="/assets/images/loja-fachada.webp" alt="Fachada da loja Cinética em Morro da Fumaça" width="700" height="875" loading="lazy" decoding="async" class="h-full w-full object-cover" />
+              <img
+                src="/assets/images/loja-fachada.webp"
+                alt="Fachada da loja Cinética em Morro da Fumaça"
+                width="700"
+                height="875"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover object-center"
+              />
             </picture>
-            <figcaption class="absolute bottom-0 left-0 bg-white p-5 font-heading text-2xl font-bold uppercase text-cinetica-blue-deep">Loja física em Morro da Fumaça</figcaption>
+            <figcaption class="absolute bottom-0 left-0 bg-white/95 backdrop-blur-sm px-4 py-2.5 font-heading text-lg sm:text-xl font-bold uppercase text-cinetica-blue-deep border-l-4 border-cinetica-orange">
+              Loja física em Morro da Fumaça
+            </figcaption>
           </figure>
         </div>
       </div>

@@ -8,45 +8,49 @@ import { siteInfo } from '../data/siteInfo';
     <div class="absolute bottom-0 right-0 h-px w-2/3 bg-gradient-to-r from-transparent via-cinetica-blue-electric/40 to-cinetica-orange"></div>
   </div>
 
-  <div class="container-shell relative py-10 sm:py-14 lg:py-20">
-    <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
-      <div class="lg:col-span-7 lg:pr-8">
-        <p class="eyebrow eyebrow-dark mb-7">{siteInfo.locationDisplay}</p>
+  <div class="container-shell relative py-12 sm:py-16 lg:py-20">
+    <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+      <div class="lg:col-span-7 lg:pr-4">
+        <p class="eyebrow eyebrow-dark mb-6">{siteInfo.locationDisplay}</p>
         <h1 class="display-title max-w-4xl text-white">
           Energia para cada projeto.
           <span class="block text-cinetica-orange">Material para fazer acontecer.</span>
         </h1>
-        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+        <p class="mt-6 max-w-2xl font-sans text-base leading-relaxed text-slate-300 sm:text-lg lg:text-xl">
           Materiais elétricos, iluminação e atendimento próximo para residências, profissionais e empresas em Morro da Fumaça.
         </p>
-        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <div class="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center">
           <a href="/contato" class="btn-primary">Falar com a Cinética</a>
           <a href="/solucoes" class="btn-secondary border-white/30 bg-transparent text-white hover:border-white hover:bg-white hover:text-cinetica-blue-dark">Explorar soluções</a>
         </div>
-        <ul class="mt-10 grid max-w-2xl grid-cols-3 divide-x divide-white/15 border-y border-white/15 py-4 text-sm text-slate-300" aria-label="Segmentos atendidos">
-          <li class="pr-4"><strong class="block font-heading text-xl uppercase text-white">Residencial</strong>Construção e reforma</li>
-          <li class="px-4"><strong class="block font-heading text-xl uppercase text-white">Profissional</strong>Rotina de obra</li>
-          <li class="pl-4"><strong class="block font-heading text-xl uppercase text-white">Empresas</strong>Comércio e indústria</li>
+        <ul class="mt-10 grid max-w-2xl grid-cols-3 divide-x divide-white/15 border-y border-white/15 py-4 text-xs sm:text-sm text-slate-300" aria-label="Segmentos atendidos">
+          <li class="pr-3 sm:pr-4"><strong class="block font-heading text-lg sm:text-xl uppercase text-white">Residencial</strong>Construção e reforma</li>
+          <li class="px-3 sm:px-4"><strong class="block font-heading text-lg sm:text-xl uppercase text-white">Profissional</strong>Rotina de obra</li>
+          <li class="pl-3 sm:pl-4"><strong class="block font-heading text-lg sm:text-xl uppercase text-white">Empresas</strong>Comércio e indústria</li>
         </ul>
       </div>
 
-      <div class="relative lg:col-span-5 lg:pl-4">
-        <div class="absolute -left-5 -top-5 hidden h-28 w-28 border-l border-t border-cinetica-orange/70 lg:block" aria-hidden="true"></div>
-        <figure class="image-frame aspect-[4/5] shadow-2xl sm:aspect-[5/4] lg:aspect-[4/5]">
+      <div class="relative lg:col-span-5">
+        <div class="absolute -left-4 -top-4 hidden h-24 w-24 border-l-2 border-t-2 border-cinetica-orange/60 lg:block" aria-hidden="true"></div>
+        <figure class="image-frame aspect-[16/11] shadow-2xl sm:aspect-[4/3] lg:aspect-[16/11]">
           <picture>
             <source media="(max-width: 640px)" srcset="/assets/images/equipe-hero-sm.avif" type="image/avif" />
             <source media="(max-width: 640px)" srcset="/assets/images/equipe-hero-sm.webp" type="image/webp" />
             <source srcset="/assets/images/equipe-hero.avif" type="image/avif" />
             <source srcset="/assets/images/equipe-hero.webp" type="image/webp" />
-            <img src="/assets/images/equipe-hero.webp" alt="Equipe da Cinética Materiais Elétricos em Morro da Fumaça" width="1200" height="800" class="h-full w-full object-cover object-center" fetchpriority="high" />
+            <img
+              src="/assets/images/equipe-hero.webp"
+              alt="Equipe da Cinética Materiais Elétricos em Morro da Fumaça"
+              width="1200"
+              height="800"
+              class="h-full w-full object-cover object-[center_25%]"
+              fetchpriority="high"
+            />
           </picture>
-          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-cinetica-blue-dark via-cinetica-blue-dark/75 to-transparent px-6 pb-6 pt-20">
-            <span class="font-heading text-2xl font-bold uppercase tracking-wide text-white">Atendimento que entende o seu projeto</span>
-          </figcaption>
         </figure>
-        <div class="absolute -bottom-4 -right-4 hidden bg-cinetica-orange px-5 py-4 text-cinetica-blue-dark shadow-xl sm:block">
-          <span class="block font-heading text-2xl font-extrabold uppercase leading-none">Presença local</span>
-          <span class="text-xs font-bold uppercase tracking-wider">Morro da Fumaça — SC</span>
+        <div class="absolute -bottom-3 right-3 sm:-bottom-4 sm:-right-4 bg-cinetica-orange px-5 py-3 sm:py-3.5 text-cinetica-blue-dark shadow-xl rounded-sm">
+          <span class="block font-heading text-xl sm:text-2xl font-extrabold uppercase leading-none">Presença local</span>
+          <span class="block font-sans text-[11px] sm:text-xs font-bold uppercase tracking-wider text-cinetica-blue-dark/90">Morro da Fumaça — SC</span>
         </div>
       </div>
     </div>

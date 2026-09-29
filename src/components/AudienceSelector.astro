@@ -27,30 +27,38 @@ const audiences = [
 ];
 ---
 
-<section class="bg-[var(--color-paper)] py-20 sm:py-24 lg:py-28">
+<section class="bg-[var(--color-paper)] py-16 sm:py-20 lg:py-24">
   <div class="container-shell">
     <div class="grid gap-8 border-b border-slate-300 pb-10 lg:grid-cols-12 lg:items-end">
       <div class="lg:col-span-7">
         <p class="eyebrow mb-4">Atendimento sob medida</p>
         <h2 class="section-title max-w-3xl">Uma loja preparada para diferentes desafios</h2>
       </div>
-      <p class="text-lg leading-relaxed text-slate-600 lg:col-span-5 lg:pl-8">
+      <p class="font-sans text-base sm:text-lg leading-relaxed text-slate-600 lg:col-span-5 lg:pl-8">
         Da escolha de um acabamento à conferência de uma lista técnica, você encontra orientação e materiais para seguir com confiança.
       </p>
     </div>
 
-    <div class="mt-10 grid gap-px overflow-hidden border border-slate-200 bg-slate-200 lg:grid-cols-3">
+    <div class="mt-10 grid gap-5 lg:grid-cols-3">
       {audiences.map((item, index) => (
-        <article class="group relative flex min-h-[360px] flex-col bg-white p-7 sm:p-9">
-          <div class="flex items-start justify-between">
-            <span class="font-heading text-5xl font-extrabold text-slate-500 transition-colors group-hover:text-cinetica-orange" aria-hidden="true">{item.number}</span>
-            <span class="border border-slate-200 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-cinetica-blue-navy">{item.label}</span>
+        <article class="group surface-card relative flex flex-col justify-between p-7 sm:p-8 lg:p-9">
+          <div>
+            <div class="flex items-start justify-between">
+              <span class="font-heading text-4xl sm:text-5xl font-extrabold text-slate-300 transition-colors duration-200 group-hover:text-cinetica-orange" aria-hidden="true">{item.number}</span>
+              <span class="rounded-sm border border-slate-200 bg-slate-50 px-3 py-1 font-sans text-xs font-bold uppercase tracking-[0.14em] text-cinetica-blue-navy">{item.label}</span>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-heading text-2xl sm:text-3xl font-extrabold uppercase leading-tight text-cinetica-blue-deep">{item.title}</h3>
+              <p class="mt-4 font-sans text-sm sm:text-base leading-relaxed text-slate-600">{item.description}</p>
+            </div>
           </div>
-          <div class="mt-auto pt-16">
-            <h3 class="max-w-sm font-heading text-3xl font-extrabold uppercase leading-none text-cinetica-blue-deep sm:text-4xl">{item.title}</h3>
-            <p class="mt-5 text-base leading-relaxed text-slate-600">{item.description}</p>
-            <a href={item.href} class="mt-7 inline-flex border-b-2 border-cinetica-orange pb-1 text-sm font-extrabold uppercase tracking-[0.08em] text-cinetica-blue-deep transition-colors hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange">
-              {item.link}
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <a
+              href={item.href}
+              class="inline-flex items-center gap-2 font-sans text-xs sm:text-sm font-bold uppercase tracking-[0.06em] text-cinetica-blue-deep transition-colors duration-200 hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded-sm"
+            >
+              <span>{item.link}</span>
+              <span class="text-cinetica-orange transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">→</span>
             </a>
           </div>
           {index === 1 && <div class="absolute inset-x-0 top-0 h-1 bg-cinetica-blue-electric" aria-hidden="true"></div>}

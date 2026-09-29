@@ -5,6 +5,7 @@
 @import '@fontsource/inter/latin-400.css';
 @import '@fontsource/inter/latin-600.css';
 @import '@fontsource/inter/latin-700.css';
+@import '@fontsource/inter/latin-800.css';
 
 @tailwind base;
 @tailwind components;
@@ -50,7 +51,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-cinetica-blue-navy;
+    @apply inline-flex items-center gap-3 font-sans text-xs font-bold uppercase tracking-[0.18em] text-cinetica-blue-navy;
   }
 
   .eyebrow::before {
@@ -63,39 +64,38 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   }
 
   .display-title {
-    @apply font-heading text-[2.75rem] font-extrabold uppercase leading-[0.92] tracking-[-0.025em] sm:text-6xl lg:text-7xl;
+    @apply font-heading text-4xl font-extrabold uppercase leading-[0.96] tracking-[-0.02em] sm:text-6xl lg:text-7xl;
   }
 
   .section-title {
-    @apply font-heading text-4xl font-extrabold uppercase leading-[0.98] tracking-[-0.02em] text-cinetica-blue-deep sm:text-5xl;
+    @apply font-heading text-3xl font-extrabold uppercase leading-[0.98] tracking-[-0.02em] text-cinetica-blue-deep sm:text-4xl lg:text-5xl;
   }
 
   .btn-primary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-sm bg-cinetica-orange px-7 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-cinetica-blue-dark shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-cinetica-orange-hover hover:text-white hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange focus-visible:ring-offset-2;
+    @apply inline-flex min-h-12 items-center justify-center rounded-sm bg-cinetica-orange px-7 py-3 font-sans text-sm font-bold uppercase tracking-[0.06em] text-cinetica-blue-dark shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-cinetica-orange-hover hover:text-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange focus-visible:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-sm border border-slate-300 bg-white px-7 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-cinetica-blue-deep transition duration-300 hover:-translate-y-0.5 hover:border-cinetica-blue-deep hover:bg-cinetica-blue-deep hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange focus-visible:ring-offset-2;
+    @apply inline-flex min-h-12 items-center justify-center rounded-sm border border-slate-300 bg-white px-7 py-3 font-sans text-sm font-bold uppercase tracking-[0.06em] text-cinetica-blue-deep transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-cinetica-blue-deep hover:bg-cinetica-blue-deep hover:text-white hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange focus-visible:ring-offset-2;
   }
 
   .surface-card {
-    @apply border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-slate-300;
+    @apply rounded-sm border border-slate-200/90 bg-white transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-slate-300;
     box-shadow: var(--shadow-soft);
   }
 
   .image-frame {
-    @apply relative overflow-hidden bg-cinetica-blue-dark;
+    @apply relative overflow-hidden rounded-sm bg-cinetica-blue-dark ring-1 ring-inset ring-white/10;
   }
 
-  .image-frame::after {
-    content: '';
-    @apply pointer-events-none absolute inset-0 border border-white/10;
+  .image-frame img {
+    @apply transition-transform duration-500 ease-out;
   }
 }
 
 :focus-visible {
   outline: 2px solid #FF5A00;
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {

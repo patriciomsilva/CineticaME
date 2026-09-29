@@ -13,36 +13,36 @@ const navLinks = siteInfo.navLinks;
 <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
   <div class="container-shell">
     <div class="flex h-20 items-center justify-between lg:h-24">
-      
+
       <!-- Logotipo Oficial da Cinética (Maior, Nítido e com Respiro) -->
-      <a 
-        href="/" 
-        class="flex items-center py-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded" 
+      <a
+        href="/"
+        class="flex items-center py-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded-sm"
         aria-label="Cinética Materiais Elétricos - Página Inicial"
       >
         <picture>
           <source srcset="/assets/images/cinetica-logo-oficial.webp" type="image/webp" />
-          <img 
-            src="/assets/images/cinetica-logo-oficial.png" 
-            alt="Cinética Materiais Elétricos" 
-            width="240" 
-            height="62" 
-            class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] lg:h-12"
+          <img
+            src="/assets/images/cinetica-logo-oficial.png"
+            alt="Cinética Materiais Elétricos"
+            width="240"
+            height="62"
+            class="h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02] sm:h-12 lg:h-[3.25rem]"
           />
         </picture>
       </a>
 
-      <!-- Menu de Navegação Desktop (Claro e Compacto) -->
+      <!-- Menu de Navegação Desktop (Tipografia Editorial Inter) -->
       <nav class="hidden items-center gap-8 md:flex lg:gap-10" aria-label="Navegação Principal">
         {navLinks.map((link) => {
           const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
           return (
             <a
               href={link.href}
-              class={`relative py-2 text-sm font-bold tracking-wide transition-colors ${
+              class={`relative py-2 font-sans text-sm font-semibold transition-colors ${
                 isActive
-                  ? 'text-cinetica-blue-deep font-bold after:content-[""] after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:bg-cinetica-orange'
-                  : 'text-slate-700 hover:text-cinetica-blue-deep hover:after:content-[""] hover:after:absolute hover:after:bottom-[-4px] hover:after:left-0 hover:after:right-0 hover:after:h-[2px] hover:after:bg-slate-300'
+                  ? 'text-cinetica-blue-deep font-bold after:content-[""] after:absolute after:bottom-[-6px] after:left-0 after:right-0 after:h-[2.5px] after:bg-cinetica-orange'
+                  : 'text-slate-700 hover:text-cinetica-blue-deep hover:after:content-[""] hover:after:absolute hover:after:bottom-[-6px] hover:after:left-0 hover:after:right-0 hover:after:h-[2.5px] hover:after:bg-slate-300'
               }`}
             >
               {link.name}
@@ -55,7 +55,7 @@ const navLinks = siteInfo.navLinks;
       <div class="hidden md:flex items-center">
         <a
           href="/contato"
-          class="inline-flex min-h-11 items-center justify-center bg-cinetica-blue-deep px-5 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-white transition hover:bg-cinetica-orange hover:text-cinetica-blue-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
+          class="inline-flex min-h-11 items-center justify-center rounded-sm bg-cinetica-blue-deep px-5 py-2 font-sans text-xs font-bold uppercase tracking-[0.1em] text-white transition-all duration-200 hover:bg-cinetica-orange hover:text-cinetica-blue-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange"
         >
           <span>Fale conosco</span>
         </a>
@@ -66,7 +66,7 @@ const navLinks = siteInfo.navLinks;
         <button
           type="button"
           id="mobile-menu-button"
-          class="text-cinetica-blue-deep hover:text-cinetica-orange p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-cinetica-orange"
+          class="text-cinetica-blue-deep hover:text-cinetica-orange p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-cinetica-orange"
           aria-expanded="false"
           aria-controls="mobile-menu"
           aria-label="Abrir menu de navegação"
@@ -90,9 +90,9 @@ const navLinks = siteInfo.navLinks;
       return (
         <a
           href={link.href}
-          class={`block px-3 py-2.5 text-base font-bold uppercase tracking-wider rounded transition-colors ${
+          class={`block px-3 py-2.5 font-sans text-base font-semibold uppercase tracking-wider rounded-sm transition-colors ${
             isActive
-              ? 'bg-cinetica-blue-light text-cinetica-blue-deep font-extrabold border-l-4 border-cinetica-orange'
+              ? 'bg-cinetica-blue-light text-cinetica-blue-deep font-bold border-l-4 border-cinetica-orange'
               : 'text-slate-700 hover:bg-slate-100 hover:text-cinetica-blue-deep'
           }`}
         >
@@ -105,7 +105,7 @@ const navLinks = siteInfo.navLinks;
         href={siteInfo.instagram}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full bg-cinetica-blue-deep hover:bg-cinetica-blue-navy text-white py-3 rounded text-center font-bold uppercase tracking-wider block text-xs flex items-center justify-center gap-2 transition-colors"
+        class="w-full bg-cinetica-blue-deep hover:bg-cinetica-blue-navy text-white py-3 rounded-sm text-center font-sans font-bold uppercase tracking-wider block text-xs flex items-center justify-center gap-2 transition-colors"
         aria-label="Acompanhar perfil oficial no Instagram @cineticame (abre em nova aba)"
       >
         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
