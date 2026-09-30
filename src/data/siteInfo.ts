@@ -10,6 +10,10 @@ export const siteInfo = {
     state: 'SC',
     display: 'Morro da Fumaça — SC'
   },
+  phoneDisplay: '(48) 3443-5014',
+  phoneHref: 'tel:+554834435014',
+  whatsappNumber: '554834435014',
+  whatsappHref: 'https://wa.me/554834435014?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Cin%C3%A9tica%20e%20gostaria%20de%20atendimento.',
   contact: {
     instagram: '@cineticame',
     instagramUrl: 'https://www.instagram.com/cineticame/'
@@ -30,8 +34,6 @@ export const siteInfo = {
   ],
   // Estrutura documental de pendências formais para referência centralizada
   pendingClientData: {
-    phone: null,
-    whatsapp: null,
     email: null,
     streetAddress: null,
     openingHours: null,

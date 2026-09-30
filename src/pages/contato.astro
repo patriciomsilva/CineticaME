@@ -37,16 +37,44 @@ import { siteInfo } from '../data/siteInfo';
     <div class="container-shell grid gap-8 lg:grid-cols-12">
       <article class="surface-card p-7 sm:p-9 lg:col-span-7 flex flex-col justify-between">
         <div>
-          <p class="eyebrow mb-5">Canal oficial</p>
-          <h2 class="section-title max-w-xl">Fale com a Cinética pelo Instagram</h2>
+          <p class="eyebrow mb-3">Atendimento imediato</p>
+          <h2 class="section-title max-w-xl">WhatsApp</h2>
+          <p class="mt-2 font-heading text-3xl sm:text-4xl font-extrabold text-cinetica-blue-deep tracking-tight">
+            {siteInfo.phoneDisplay}
+          </p>
           <p class="mt-4 font-sans text-base leading-relaxed text-slate-600">
-            Use nosso perfil oficial para enviar sua mensagem, acompanhar novidades e iniciar o contato com a equipe.
+            Fale diretamente com nossa equipe para tirar dúvidas sobre produtos, verificar disponibilidade e solicitar orçamentos.
           </p>
         </div>
         <div class="mt-8 pt-4">
-          <a href={siteInfo.contact.instagramUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
-            Acessar {siteInfo.contact.instagram}
-          </a>
+          <div class="flex flex-col sm:flex-row gap-3.5">
+            <a
+              href={siteInfo.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+            >
+              <span>Falar no WhatsApp</span>
+            </a>
+            <a
+              href={siteInfo.phoneHref}
+              class="btn-secondary"
+            >
+              <span>Ligar para a Cinética</span>
+            </a>
+          </div>
+          <div class="mt-8 border-t border-slate-200 pt-5">
+            <p class="font-sans text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Rede social oficial</p>
+            <a
+              href={siteInfo.contact.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 font-sans text-sm font-bold text-cinetica-blue-deep hover:text-cinetica-orange transition-colors"
+            >
+              <span>Acessar {siteInfo.contact.instagram}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </article>
 

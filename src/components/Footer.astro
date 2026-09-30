@@ -35,20 +35,32 @@ const currentYear = new Date().getFullYear();
       </nav>
 
       <div class="md:col-span-4">
-        <h2 class="mb-4 font-sans text-xs font-bold uppercase tracking-[0.18em] text-cinetica-orange">Canal oficial</h2>
-        <p class="mb-4 font-sans text-sm text-slate-400">Acompanhe novidades e fale com nossa equipe pelo Instagram.</p>
-        <a
-          href={siteInfo.contact.instagramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-3 border-b border-white/30 pb-2 font-sans text-base font-bold text-white transition-colors duration-200 hover:border-cinetica-orange hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded-sm"
-          aria-label="Instagram oficial @cineticame"
-        >
-          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.675A6.162 6.162 0 1 0 12 18.163 6.162 6.162 0 0 0 12 5.838zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/>
-          </svg>
-          {siteInfo.contact.instagram}
-        </a>
+        <h2 class="mb-4 font-sans text-xs font-bold uppercase tracking-[0.18em] text-cinetica-orange">Canais oficiais</h2>
+        <p class="mb-4 font-sans text-sm text-slate-400">Fale com nossa equipe ou acompanhe novidades.</p>
+        <div class="space-y-3">
+          <a
+            href={siteInfo.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 border-b border-white/20 pb-2.5 font-sans text-base font-bold text-white transition-colors duration-200 hover:border-cinetica-orange hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded-sm"
+          >
+            <svg class="h-5 w-5 fill-current shrink-0 text-cinetica-orange" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+            </svg>
+            <span>WhatsApp: {siteInfo.phoneDisplay}</span>
+          </a>
+          <a
+            href={siteInfo.contact.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 border-b border-white/20 pb-2.5 font-sans text-base font-bold text-white transition-colors duration-200 hover:border-cinetica-orange hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded-sm"
+          >
+            <svg class="h-5 w-5 fill-current shrink-0 text-cinetica-orange" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.675A6.162 6.162 0 1 0 12 18.163 6.162 6.162 0 0 0 12 5.838zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/>
+            </svg>
+            <span>Instagram: {siteInfo.contact.instagram}</span>
+          </a>
+        </div>
       </div>
     </div>
 

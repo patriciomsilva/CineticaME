@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteInfo } from '../data/siteInfo';
 ---
 
 <BaseLayout
@@ -32,7 +33,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </p>
         </div>
         <div class="mt-8">
-          <a href="/contato" class="btn-primary">Conversar com a equipe</a>
+          <a href={siteInfo.whatsappHref} target="_blank" rel="noopener noreferrer" class="btn-primary">Conversar com a equipe</a>
         </div>
       </div>
 

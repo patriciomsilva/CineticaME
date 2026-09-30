@@ -1,3 +1,7 @@
+---
+import { siteInfo } from '../data/siteInfo';
+---
+
 <section class="overflow-hidden bg-white pt-16 pb-12 sm:pt-20 sm:pb-14 lg:pt-24 lg:pb-16">
   <div class="container-shell">
     <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
@@ -82,7 +86,9 @@
       </h2>
     </div>
     <a
-      href="/contato"
+      href={siteInfo.whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
       class="inline-flex min-h-12 items-center justify-center rounded-sm bg-cinetica-blue-dark px-7 py-3 font-sans text-sm font-bold uppercase tracking-[0.06em] text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-cinetica-blue-navy hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-blue-dark focus-visible:ring-offset-2 shrink-0"
     >
       Entrar em contato

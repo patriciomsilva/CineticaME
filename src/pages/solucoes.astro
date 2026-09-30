@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { solutionsData } from '../data/solutions';
+import { siteInfo } from '../data/siteInfo';
 ---
 
 <BaseLayout
@@ -120,7 +121,9 @@ import { solutionsData } from '../data/solutions';
                 </p>
                 <div class="mt-4">
                   <a
-                    href="/contato"
+                    href={siteInfo.whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 font-sans text-xs sm:text-sm font-bold uppercase tracking-[0.06em] text-cinetica-blue-deep transition-colors duration-200 hover:text-cinetica-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cinetica-orange rounded-sm"
                   >
                     <span>Falar com o atendimento</span>
@@ -162,7 +165,7 @@ import { solutionsData } from '../data/solutions';
           Visite a loja ou converse com a Cinética para entender quais materiais fazem sentido para o seu projeto.
         </p>
         <div class="mt-8">
-          <a href="/contato" class="btn-primary">Falar com nossa equipe</a>
+          <a href={siteInfo.whatsappHref} target="_blank" rel="noopener noreferrer" class="btn-primary">Falar com nossa equipe</a>
         </div>
       </div>
     </div>
