@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_nqcEf4l7xoUfgb3AUFGF4U0xD7aX",
+  "orgId": "team_3CoZQoZkbJpBijPAzSkb9WG4",
+  "projectName": "cinetica-team-preview",
+  "settings": {
+    "createdAt": 1790729223567,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}
